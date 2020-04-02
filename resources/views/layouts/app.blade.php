@@ -8,8 +8,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    
+    <title>{{ config('app.name', 'TWP Infoboard') }}</title>
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">   
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     
@@ -20,103 +20,203 @@
 </head>
 
 <body>
+<div id="app">
+    <div id="wrapper">
 
-<div id="wrapper">
-
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
-                            <span class="text-muted text-xs block">menu <b class="caret"></b></span>
-                        </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
-                        </ul>
-                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li class="active">
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
-                </li>
-                <li>
-                    <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-    <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" method="post" action="#">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                                <span class="block m-t-xs font-bold">dawid</span>
+                                <span class="text-muted text-xs block">menu <b class="caret"></b></span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                            </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                         </div>
-                    </form>
-                </div>
-                <ul class="nav navbar-top-links navbar-right">
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
+                    </li>
                     <li>
-                        @if (Route::has('login'))
-                        <div class="top-right links">
-                            @auth
-                            <a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home</a>
-                            @else
-                            <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
-                        
-                            @if (Route::has('register'))
-                            <a href="{{ route('register') }}"><i class="fa fa-edit"></i>Register</a>
-                            @endif
-                            @endauth
-                        </div>
-                        @endif
+                        <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
                     </li>
                 </ul>
 
-            </nav>
-        </div>
-        <main class="py-4">
-            @yield('content')
-        </main>
-        <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
             </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2019
-            </div>
-        </div>
+        </nav>
 
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" method="post" action="#">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            @if (Route::has('login'))
+                            <div class="top-right links">
+                                @auth
+                                <a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home</a>
+                                @else
+                                <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
+                            
+                                @if (Route::has('register'))
+                                <a href="{{ route('register') }}"><i class="fa fa-edit"></i>Register</a>
+                                @endif
+                                @endauth
+                            </div>
+                            @endif
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <main class="py-4">
+                @yield('content')
+            </main>
+            <div class="footer">
+                <div class="pull-right">
+                    10GB of <strong>250GB</strong> Free.
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2019
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 
 <!-- Mainly scripts -->
-<script src="{{ asset('js/jquery-3.1.1.min.js') }}" defer></script>
-<script src="{{ asset('js/popper.min.js') }}" defer></script>
-<script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
-<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}" defer></script>
-<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}" defer></script>
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/popper.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 
 
 <!-- Custom and plugin javascript -->
 <script src="{{ asset('js/inspinia.js') }}" defer></script>
-
 <script src="{{ asset('js/plugins/pace/pace.min.js') }}" defer></script>
 
+<!-- Flot -->
+<script src="{{ asset('js/plugins/flot/jquery.flot.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.tooltip.min.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.spline.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.resize.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.pie.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.symbol.js') }}" defer></script>
+<script src="{{ asset('js/plugins/flot/jquery.flot.time.js') }}" defer></script>
+
+<!-- Sparkline -->
+<script src="{{ asset('js/plugins/sparkline/jquery.sparkline.min.js') }}" defer></script>
+
+<script>
+        $(document).ready(function() {
+
+            var sparklineCharts = function(){
+                $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52], {
+                    type: 'line',
+                    width: '100%',
+                    height: '50',
+                    lineColor: '#1ab394',
+                    fillColor: "transparent"
+                });
+
+                $("#sparkline2").sparkline([32, 11, 25, 37, 41, 32, 34, 42], {
+                    type: 'line',
+                    width: '100%',
+                    height: '50',
+                    lineColor: '#1ab394',
+                    fillColor: "transparent"
+                });
+
+                $("#sparkline3").sparkline([34, 22, 24, 41, 10, 18, 16,8], {
+                    type: 'line',
+                    width: '100%',
+                    height: '50',
+                    lineColor: '#1C84C6',
+                    fillColor: "transparent"
+                });
+            };
+
+            var sparkResize;
+
+            $(window).resize(function(e) {
+                clearTimeout(sparkResize);
+                sparkResize = setTimeout(sparklineCharts, 500);
+            });
+
+            sparklineCharts();
 
 
+
+
+            var data1 = [
+                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,20],[11,10],[12,13],[13,4],[14,7],[15,8],[16,12]
+            ];
+            var data2 = [
+                [0,0],[1,2],[2,7],[3,4],[4,11],[5,4],[6,2],[7,5],[8,11],[9,5],[10,4],[11,1],[12,5],[13,2],[14,5],[15,2],[16,0]
+            ];
+            $("#flot-dashboard5-chart").length && $.plot($("#flot-dashboard5-chart"), [
+                        data1,  data2
+                    ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: true
+                            },
+                            splines: {
+                                show: true,
+                                tension: 0.4,
+                                lineWidth: 1,
+                                fill: 0.4
+                            },
+                            points: {
+                                radius: 0,
+                                show: true
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true,
+
+                            borderWidth: 2,
+                            color: 'transparent'
+                        },
+                        colors: ["#1ab394", "#1C84C6"],
+                        xaxis:{
+                        },
+                        yaxis: {
+                        },
+                        tooltip: false
+                    }
+            );
+
+        });
+    </script>
+
+
+{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 </body>
 
 </html>
