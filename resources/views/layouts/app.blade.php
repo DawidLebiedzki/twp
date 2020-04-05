@@ -8,14 +8,17 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'TWP Infoboard') }}</title>
+    <title>TWP Infoboard</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico') }}" > 
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">   
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-   
+    
+    <link href="{{ asset('css/plugins/footable/footable.core.css') }}" rel="stylesheet">
 
 </head>
 
@@ -30,27 +33,112 @@
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
-                                <span class="block m-t-xs font-bold">dawid</span>
-                                <span class="text-muted text-xs block">menu <b class="caret"></b></span>
+                                @if (Route::has('login'))
+                                   @auth
+                                       <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
+                                       {{-- <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span> --}}
+                                  @endauth
+                                      
+                                @else
+                                       <span class="block m-t-xs font-bold">Gast</span>
+                                   
+                                @endif
+                                
+                                <span class="text-muted text-xs block">Menu <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                <li><a class="dropdown-item" href="{{ url('/home') }}"></a> Profil</li>
+                                <li><a class="dropdown-item" href="{{ url('/home') }}"></a> Nachrichten</li>
+                                <li class="dropdown-divider"></li>
+                                @if (Route::has('login'))
+                                    @auth
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
+                                        document.getElementById('logout-form').submit();">Logout</a></li>
+                                
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    @endauth
+                                   
+                                @endif
                             </ul>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
                         </div>
                         <div class="logo-element">
                             IN+
                         </div>
                     </li>
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Main view</span></a>
+                   
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Profilabteilung</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        <li><a href="#">Stückzahl eingeben</a></li>
+                        <li><a href="#">Materialverbrauch</a></li>
+                        <li><a href="#">Schichtübergabe</a></li>
+                        </ul></li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Stanzabteilung</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        <li><a href="#">Stückzahl eingeben</a></li>
+                        <li><a href="#">Materialverbrauch</a></li>
+                        <li><a href="#">Schichtübergabe</a></li>
+                        </ul></li>
+                         
+                      
+                   
+                   <li>
+                        <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">6S</span> </a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#">Profilabteilung</a></li>
+                            <li><a href="#">Stanzabteilung</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">Zeichnungen</span> </a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">Infoboard</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#">Profilabteilung</a></li>
+                            <li><a href="#">Stanzabteilung</a></li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="minor.html"><i class="fa fa-th-large"></i> <span class="nav-label">Minor view</span> </a>
+                        
+                        <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Benutzer</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ route('admin.users.index') }}">Verwalten</a></li>
+                        
+                        </ul></li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                        <li><a href="#">Stückzahl eingeben</a></li>
+                        <li><a href="#">Materialverbrauch</a></li>
+                        <li><a href="#">Schichtübergabe</a></li>
+                        </ul></li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Stückzahl eingeben</a></li>
+                                <li><a href="#">Materialverbrauch</a></li>
+                                <li><a href="#">Schichtübergabe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Stückzahl eingeben</a></li>
+                                <li><a href="#">Materialverbrauch</a></li>
+                                <li><a href="#">Schichtübergabe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Auftrag</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">Stückzahl eingeben</a></li>
+                                <li><a href="#">Materialverbrauch</a></li>
+                                <li><a href="#">Schichtübergabe</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                     </li>
                 </ul>
 
@@ -104,6 +192,7 @@
     </div>
 </div>
 
+
 <!-- Mainly scripts -->
 <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
@@ -127,6 +216,11 @@
 
 <!-- Sparkline -->
 <script src="{{ asset('js/plugins/sparkline/jquery.sparkline.min.js') }}" defer></script>
+
+<!-- FooTable -->
+<script src="{{ asset('js/plugins/footable/footable.all.min.js') }}" defer></script>
+
+@yield('script')
 
 <script>
         $(document).ready(function() {
