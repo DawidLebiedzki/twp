@@ -32,17 +32,19 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
-                                @if (Route::has('login'))
-                                   @auth
+                                <img alt="image" class="rounded-circle" src="{{ asset('img/user-avatar.jpg') }}"/ height="50" width="50">
+                               
+                                    @auth
                                        <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
                                        {{-- <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span> --}}
-                                  @endauth
+                                    @endauth
                                       
-                                @else
-                                       <span class="block m-t-xs font-bold">Gast</span>
+                                    @guest
+                                         <span class="block m-t-xs font-bold">Gast</span>
                                    
-                                @endif
+                                    @endguest
+                                      
+                               
                                 
                                 <span class="text-muted text-xs block">Menu <b class="caret"></b></span>
                             </a>
@@ -161,7 +163,7 @@
                             @if (Route::has('login'))
                             <div class="top-right links">
                                 @auth
-                                <a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home</a>
+                                <a href="#"><i class="fa fa-home"></i> Home</a>
                                 @else
                                 <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
                             
@@ -175,6 +177,22 @@
                     </ul>
 
                 </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Issue list</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a>App views</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Issue list</strong>
+                        </li>
+                    </ol>
+                </div>
             </div>
             <main class="py-4">
                 @yield('content')
