@@ -7,7 +7,10 @@
                     <div class="ibox">
                         <div class="ibox-title">
                             <h5>Benutzer</h5>
-
+                            <a href="#">Test</a>
+                                <div class="ibox-tools">
+                                    <a href="" class="btn btn-primary btn-xs">Benutzer hinzufügen</a>
+                                </div>
                             
                         </div>
                         <div class="ibox-content">
