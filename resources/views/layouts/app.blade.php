@@ -15,17 +15,24 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">   
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     
-    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
+
     
     <link href="{{ asset('css/plugins/footable/footable.core.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+   
 
 </head>
 
 <body>
 <div id="app">
     <div id="wrapper">
-
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav metismenu" id="side-menu">
@@ -33,19 +40,13 @@
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="image" class="rounded-circle" src="{{ asset('img/user-avatar.jpg') }}"/ height="50" width="50">
-                               
                                     @auth
                                        <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
                                        {{-- <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span> --}}
-                                    @endauth
-                                      
+                                    @endauth                                      
                                     @guest
                                          <span class="block m-t-xs font-bold">Gast</span>
-                                   
-                                    @endguest
-                                      
-                               
-                                
+                                    @endguest                                
                                 <span class="text-muted text-xs block">Menu <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -61,11 +62,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    @endauth
-                                   
+                                    @endauth                                   
                                 @endif
                             </ul>
                         </div>
+{{-- Left menu --}}
                         <div class="logo-element">
                             IN+
                         </div>
@@ -146,7 +147,7 @@
 
             </div>
         </nav>
-
+{{-- Right navbar side --}}
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
@@ -159,24 +160,26 @@
                         </form>
                     </div>
                     <ul class="nav navbar-top-links navbar-right">
+                        @auth
                         <li>
-                            @if (Route::has('login'))
-                            <div class="top-right links">
-                                @auth
-                                <a href="#"><i class="fa fa-home"></i> Home</a>
-                                @else
-                                <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
-                            
-                                @if (Route::has('register'))
-                                <a href="{{ route('register') }}"><i class="fa fa-edit"></i>Register</a>
-                                @endif
-                                @endauth
-                            </div>
-                            @endif
+                            <a href="#"><i class="fa fa-home"></i> Home</a>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sign-out"></i> Log out</a>
+                        </li>
+                        @endauth
+                        @guest
+                        <li>
+                            <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('register') }}"><i class="fa fa-edit"></i>Register</a>
+                        </li>    
+                        
+                        @endguest                        
                     </ul>
-
                 </nav>
+{{-- End navbar --}}
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
