@@ -50,11 +50,12 @@
                                 <span class="text-muted text-xs block">Menu <b class="caret"></b></span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a class="dropdown-item" href="{{ url('/home') }}"></a> Profil</li>
-                                <li><a class="dropdown-item" href="{{ url('/home') }}"></a> Nachrichten</li>
-                                <li class="dropdown-divider"></li>
-                                @if (Route::has('login'))
-                                    @auth
+                                
+                                @auth 
+                                <li><a class="dropdown-item" href="{{ url('/home') }}">Profil</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/home') }}">Nachrichten</a></li>
+                                <li class="dropdown-divider"></li>      
+                                   
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">Logout</a></li>
@@ -62,13 +63,15 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    @endauth                                   
-                                @endif
+                                @endauth                                   
+                                @guest
+                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                                @endguest
                             </ul>
                         </div>
 {{-- Left menu --}}
                         <div class="logo-element">
-                            IN+
+                            TWP
                         </div>
                     </li>
                    
