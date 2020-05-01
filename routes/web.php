@@ -26,4 +26,7 @@ Route::resource('/admin/users', 'Admin\UserController', ['except' => 'show']);
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('/users', 'UserController', ['except' => 'show']);
+    Route::resource('/shift', 'ShiftController', ['except' => 'show']);
 });
+
+Route::get('/shift', 'ShiftController@index')->name('shift');
