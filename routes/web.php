@@ -29,4 +29,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('/shift', 'ShiftController', ['except' => 'show']);
 });
 
-Route::get('/shift', 'ShiftController@index')->name('shift');
+Route::get('/shift/depart/punching', 'ShiftController@showPunchingShift')->name('shift.punching');
+Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('shift.rolling');
