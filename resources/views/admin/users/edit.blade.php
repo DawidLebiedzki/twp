@@ -12,9 +12,9 @@
                     @csrf
                     {{ method_field('PUT') }}
                     @foreach ($roles as $role)
-                        <div class="form-check">
-                        <input type="checkbox" name="roles[]" value="{{$role->id}}">
-                        <label>{{ $role->name }}</label>
+                        <div class="form-check abc-checkbox abc-checkbox-info abc-checkbox-circle">
+                        <input class="form-check-input" id="checkbox{{$role->id}}" type="checkbox" name="roles[]" value="{{$role->id}}">
+                        <label class="form-check-label" for="checkbox{{$role->id}}">{{ $role->name }}</label>
                         </div>
                     @endforeach
                         <button type="submit" class="btn btn-primary">Update</button>
