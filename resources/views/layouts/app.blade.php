@@ -15,6 +15,20 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">   
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     
+    <link href="{{ asset('css/plugins/iCheck/custom.css') }}" rel="stylesheet">  
+    
+    <link href="{{ asset('css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet">  
+    
+    <link href="{{ asset('css/plugins/jasny/jasny-bootstrap.min.css') }}" rel="stylesheet">  
+    
+    <link href="{{ asset('css/plugins/datapicker/datepicker3.css') }}" rel="stylesheet">  
+    
+    <link href="{{ asset('css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css') }}" rel="stylesheet">  
+    
+    <link href="{{ asset('css/plugins/select2/select2.min.css') }}" rel="stylesheet">  
+   
+    <link href="{{ asset('css/plugins/select2/select2-bootstrap4.min.css') }}" rel="stylesheet">  
+   
     <!-- Toastr style -->
     <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
@@ -95,8 +109,8 @@
                     </li>
                     <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="#">Profilabteilung</a></li>
-                            <li><a href="#">Stanzabteilung</a></li>
+                            <li><a href="{{ route('shift.rolling') }}">Profilabteilung</a></li>
+                            <li><a href="{{ route('shift.punching') }}">Stanzabteilung</a></li>
                         </ul>
                     </li>
                      <li>
@@ -219,13 +233,25 @@
 <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('js/popper.min.js') }}"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-
 
 <!-- Custom and plugin javascript -->
 <script src="{{ asset('js/inspinia.js') }}" defer></script>
 <script src="{{ asset('js/plugins/pace/pace.min.js') }}" defer></script>
+<script src="{{ asset('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+<!-- JSKnob -->
+<script src="{{ asset('js/plugins/jsKnob/jquery.knob.js') }}"></script>
+
+<!-- Input Mask-->
+<script src="{{ asset('js/plugins/jasny/jasny-bootstrap.min.js') }}"></script>
+
+<!-- Data picker -->
+<script src="{{ asset('js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
+
+ <!-- MENU -->
+<script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+
+
 
 <!-- Flot -->
 <script src="{{ asset('js/plugins/flot/jquery.flot.js') }}" defer></script>
@@ -242,7 +268,7 @@
 <!-- FooTable -->
 <script src="{{ asset('js/plugins/footable/footable.all.min.js') }}" defer></script>
 
-@yield('script')
+
 
 <script>
         $(document).ready(function() {
@@ -330,7 +356,7 @@
 
         });
     </script>
-
+@yield('script')
 
 {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 </body>
