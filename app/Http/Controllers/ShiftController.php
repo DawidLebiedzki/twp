@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class ShiftController extends Controller
 {
+
+    public function showPunchingShift()
+    {
+        return view('shift.depart.punching.index');
+    }
+
+    public function showRollingShift()
+    {
+        return view('shift.depart.rolling.index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,7 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        return view('shift.index');
+        return view('shift.depart.punching.index');
     }
 
     /**
