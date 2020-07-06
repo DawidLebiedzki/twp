@@ -122,6 +122,12 @@
                             <li><a href="#">Stanzabteilung</a></li>
                         </ul>
                     </li>
+                    <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">QM</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ route('requali.index') }}">Requalifikation</a></li>
+                            <li><a href="#">Stanzabteilung</a></li>
+                        </ul>
+                    </li>
                     <li>
                         
                         <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
@@ -251,7 +257,9 @@
  <!-- MENU -->
 <script src="{{ asset('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
 
-
+<!-- DataTables -->
+<script src="{{ asset('js/plugins/dataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('js/plugins/dataTables/dataTables.bootstrap4.min.js') }}"></script>
 
 <!-- Flot -->
 <script src="{{ asset('js/plugins/flot/jquery.flot.js') }}" defer></script>

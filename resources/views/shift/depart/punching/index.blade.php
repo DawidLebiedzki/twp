@@ -31,13 +31,13 @@
         </div>
         <div class="ibox-content">
             <div class="row">
-                {{-- <div class="col-sm-9 m-b-xs">
-                    <div data-toggle="buttons" class="btn-group btn-group-toggle">
-                        <label class="btn btn-sm btn-white"> <input type="radio" id="mornShift" name="options"> Frühschicht </label>
-                        <label class="btn btn-sm btn-white "> <input type="radio" id="lattSchift" name="options"> Spätschicht </label>
-                        
+                <div class="col-sm-9 m-b-xs">
+                   <div data-toggle="buttons" class="btn-group btn-group-toggle">
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
+                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
                     </div>
-                </div> --}}
+                </div>
                 <div class="col-sm-3">
                     <div class="input-group mb-3" id="data_1">
                         <div class="input-group date">
@@ -250,7 +250,7 @@
   <!-- Page-Level Scripts -->
     <script>
         $(document).ready(function() {
-
+            
             $('#mornShift').click(function(){
                 $('h5').show();
             });
@@ -264,27 +264,32 @@
             var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = today.getFullYear();
             
-            today = dd + '/' + mm + '/' + yyyy;
-
+            today = dd + '.' + mm + '.' + yyyy;
+            let sellectedDate;
+            $('#spanCurrDate').text(sellectedDate);
             var mem = $('#data_1 .input-group.date').datepicker({
                 todayBtn: "linked",
+                format: "dd.mm.yyyy",
                 keyboardNavigation: false,
                 forceParse: false,
                 calendarWeeks: true,
                 autoclose: true,
                 weekStart: 1,
                 daysOfWeekDisabled: [0,6],
-                todayHighlight: true
+                todayHighlight: true,
+                language: "de",
+                startDate: "-2d",
+                endDate: "+1d",
             });
             $('#data_1 .input-group.date').datepicker('setDate', new Date());
            // mem.date(today);
             
             console.log(today);
-            let sellectedDate = $('#data_1 .input-group.date').data('datepicker').getFormattedDate('dd/mm/yyyy');
-
+            sellectedDate = $('#data_1 .input-group.date').data('datepicker').getFormattedDate('dd.mm.yyyy');
+            
             console.log(sellectedDate);
             
-            $('#spanCurrDate').text(sellectedDate);
+           
         });
 
     </script>  

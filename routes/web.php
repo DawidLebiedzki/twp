@@ -31,3 +31,5 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 Route::get('/shift/depart/punching', 'ShiftController@showPunchingShift')->name('shift.punching');
 Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('shift.rolling');
+
+Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requali.index');
