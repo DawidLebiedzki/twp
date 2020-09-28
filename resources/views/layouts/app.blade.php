@@ -89,24 +89,29 @@
                         </div>
                     </li>
                    
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Profilabteilung</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Arbeitskarte</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
+                            <li>
+                                <a href="#" id="damian">Profilabteilung <span class="fa arrow"></span></a>
+                                    <ul class="nav nav-third-level collapse">
+                                        <li><a href="#">Stückzahl eingeben</a></li>
+                                        <li><a href="#">Materialverbrauch</a></li>
+                                        <li><a href="#">Schichtübergabe</a></li>
+                                    </ul>
+                                    </li>
+                            <li><a href="#"> <span class="nav-label">Stanzabteilung</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level collapse">
                         <li><a href="#">Stückzahl eingeben</a></li>
                         <li><a href="#">Materialverbrauch</a></li>
                         <li><a href="#">Schichtübergabe</a></li>
                         </ul></li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Stanzabteilung</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                        <li><a href="#">Stückzahl eingeben</a></li>
-                        <li><a href="#">Materialverbrauch</a></li>
-                        <li><a href="#">Schichtübergabe</a></li>
-                        </ul></li>
+                        </ul>
+                        </li>
+                        
                          
                       
                    
-                   <li>
-                        <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">6S</span> </a>
-                    </li>
+                  
                     <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ route('shift.rolling') }}">Profilabteilung</a></li>
@@ -114,8 +119,16 @@
                         </ul>
                     </li>
                      <li>
-                        <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">Zeichnungen</span> </a>
+                        <a href="#"><i class="fa fa-database"></i> <span class="nav-label">Stammdaten</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="{{ route('shift.rolling') }}">Artikel</a></li>
+                            <li><a href="{{ route('shift.punching') }}">Lehrenbeschreibung</a></li>
+                        </ul>
                     </li>
+                     <li>
+                        <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">6S</span> </a>
+                    </li>
+                    
                     <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">Infoboard</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="#">Profilabteilung</a></li>
@@ -125,7 +138,7 @@
                     <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">QM</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ route('requali.index') }}">Requalifikation</a></li>
-                            <li><a href="#">Stanzabteilung</a></li>
+                            <li><a href="#">Reklamation Auswertung</a></li>
                         </ul>
                     </li>
                     <li>

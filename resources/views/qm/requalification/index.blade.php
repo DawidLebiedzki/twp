@@ -457,11 +457,23 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                 <th>#</th>
+                                <th>Artikel-Nr. Tillmann </th>
+                                <th>Artikel-Nr. Kunde </th>
+                                <th>Produktbezeichnung </th>
+                                <th>Produktgruppe </th>
+                                <th>Kunde </th>
+                                <th>J/N </th>
+                                <th>Bemerkung
+                                    (z.B. wenn Requali nicht zum Termin durchgeführt werden konnte)</th>
+                                <th>Erste fällige Requalifikations-prüfung nach Serienfreigabe </th>
+                                <th>Requalifikation
+                                    durchgeführt
+                                    am (Datum)</th>
+                                <th>Datum der nächsten Requalifikations-prüfung </th>
+                                <th>Info bzw. Sondervereinbarungen
+                                    für die Requalifikations-prüfung </th>
+                                <th>Action </th>
                             </tr>
                         </tfoot>
                     </table>
