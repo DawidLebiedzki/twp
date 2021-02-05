@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Drawing extends Model
+class Drawing extends Model implements HasMedia
 {
-    //
+    use InteractsWithMedia;
 }

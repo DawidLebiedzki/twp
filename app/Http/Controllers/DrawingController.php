@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Drawing;
 use Illuminate\Http\Request;
 
 class DrawingController extends Controller
