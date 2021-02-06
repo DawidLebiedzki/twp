@@ -14,7 +14,14 @@ class DrawingController extends Controller
      */
     public function index()
     {
-        return view('drawing.index');
+        $drawings = Drawing::all();
+        return view('drawings.index')->with('drawings', $drawings);
+    }
+
+
+    public function getDrawing(Request $request)
+    {
+        # code...
     }
 
     /**
@@ -24,7 +31,7 @@ class DrawingController extends Controller
      */
     public function create()
     {
-        //
+        return view('drawings.create');
     }
 
     /**

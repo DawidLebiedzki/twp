@@ -121,7 +121,7 @@
                      <li>
                         <a href="#"><i class="fa fa-database"></i> <span class="nav-label">Stammdaten</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ route('drawing.index') }}">Zeichnung</a></li>
+                            <li><a href="{{ route('drawings.index') }}">Zeichnung</a></li>
                             <li><a href="{{ route('shift.punching') }}">Lehrenbeschreibung</a></li>
                         </ul>
                     </li>

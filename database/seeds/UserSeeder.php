@@ -20,23 +20,27 @@ class UserSeeder extends Seeder
 
         DB::table('role_user')->truncate();
 
+
         $gottRole = Role::where('name', 'gott')->first();
         $adminRole = Role::where('name', 'admin')->first();
         $userRole = Role::where('name', 'user')->first();
 
         $gott = User::create([
+
             'name' => 'Dawid Lebiedzki',
             'username' => '100',
             'password' => Hash::make('password')
         ]);
 
         $admin = User::create([
+
             'name' => 'Andrej Koth',
             'username' => '200',
             'password' => Hash::make('password')
         ]);
 
         $user = User::create([
+
             'name' => 'Crisoph Blume',
             'username' => '300',
             'password' => Hash::make('password')

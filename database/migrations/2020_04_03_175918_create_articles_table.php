@@ -14,14 +14,20 @@ class CreateArticlesTable extends Migration
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('article_number');
-            $table->string('name');
+            $table->increments('id')->unique();
+            $table->string('article_number_intern', 100);
+            $table->string('article_number_customer', 100);
+            $table->string('article_index', 100);
+            $table->string('name', 100);
+            $table->string('drawing_number', 100);
+            $table->string('drawing_index', 100);
+            $table->string('profil_number', 100);
             $table->integer('customer_id')->unsigned();
-            $table->integer('drawing_number');
-            $table->string('drawing_index');
-            $table->string('profil_number');
             $table->timestamps();
+        });
+        Schema::table('articles', function (Blueprint $table) {
+
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

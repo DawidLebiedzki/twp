@@ -34,4 +34,4 @@ Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('s
 
 Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requali.index');
 
-Route::get('/drawing', 'DrawingController@index')->name('drawing.index');
+Route::resource('drawings', 'drawingController');
