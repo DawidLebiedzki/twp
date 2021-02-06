@@ -35,3 +35,4 @@ Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('s
 Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requali.index');
 
 Route::resource('drawings', 'drawingController');
+Route::resource('machines', 'MachineController');
