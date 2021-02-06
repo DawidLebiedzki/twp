@@ -36,3 +36,4 @@ Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requ
 
 Route::resource('drawings', 'drawingController');
 Route::resource('machines', 'MachineController');
+Route::resource('articles', 'ArticleController');

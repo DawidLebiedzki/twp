@@ -152,15 +152,24 @@
                         </ul></li>
                         <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                        <li><a href="#">Stückzahl eingeben</a></li>
-                        <li><a href="#">Materialverbrauch</a></li>
-                        <li><a href="#">Schichtübergabe</a></li>
+                        <li><a href="{{ route('machines.index') }}">Verwalten</a></li>
+                        
                         </ul></li>
                         <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="#">Stückzahl eingeben</a></li>
                                 <li><a href="#">Materialverbrauch</a></li>
                                 <li><a href="#">Schichtübergabe</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="{{ route('drawings.index') }}">Verwalten</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="{{ route('articles.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
