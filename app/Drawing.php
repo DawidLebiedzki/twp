@@ -27,7 +27,7 @@ class Drawing extends Model implements HasMedia
 
     public function drawings()
     {
-        return $this->belongsToMany('App\Artivle');
+        return $this->belongsToMany('App\Article');
     }
     public function users()
     {
