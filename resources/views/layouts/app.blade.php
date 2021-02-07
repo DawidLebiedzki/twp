@@ -135,12 +135,7 @@
                             <li><a href="#">Stanzabteilung</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">QM</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ route('requali.index') }}">Requalifikation</a></li>
-                            <li><a href="#">Reklamation Auswertung</a></li>
-                        </ul>
-                    </li>
+                   
                     <li>
                         @hasrole('admin')
                         <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
