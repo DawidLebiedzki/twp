@@ -142,7 +142,7 @@
                         </ul>
                     </li>
                     <li>
-                        
+                        @hasrole('admin')
                         <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Benutzer</span><span class="fa arrow"></span></a>
@@ -185,6 +185,7 @@
                             </ul>
                         </li>
                     </ul>
+                    @endhasrole
                     </li>
                 </ul>
 
@@ -226,7 +227,7 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Issue list</h2>
+                    {{-- <h2>{{ $webpage }}</h2> --}}<h2>Page</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href="index.html">Home</a>

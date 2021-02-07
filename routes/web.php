@@ -34,7 +34,10 @@ Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('s
 
 Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requali.index');
 
-Route::resource('drawings', 'drawingController');
-Route::resource('machines', 'MachineController');
-Route::resource('articles', 'ArticleController');
-Route::resource('customers', 'CustomerController');
+
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::resource('drawings', 'drawingController');
+    Route::resource('machines', 'MachineController');
+    Route::resource('articles', 'ArticleController');
+    Route::resource('customers', 'CustomerController');
+});

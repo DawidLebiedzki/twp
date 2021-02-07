@@ -36,6 +36,7 @@
                                     <th>F-Nummer</th>
                                     <th>Kunde Artikel-Nr.</th>
                                     <th data-hide="phone,tablet">Benennung</th>
+                                    <th data-hide="phone,tablet">Profil-Nr.</th>
                                     <th data-hide="phone,tablet">Zeichnung-Nr.</th>
                                     <th data-hide="phone,tablet">Index</th>
                                     <th >Action</th>
