@@ -44,7 +44,7 @@
 
 </head>
 
-<body>
+<body class="fixed-sidebar no-skin-config full-height-layout">
 <div id="app">
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -140,48 +140,60 @@
                         @hasrole('admin')
                         <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Benutzer</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-user"></i> <span class="nav-label">Benutzer</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                         <li><a href="{{ route('admin.users.index') }}">Verwalten</a></li>
                         
                         </ul></li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                         <li><a href="{{ route('machines.index') }}">Verwalten</a></li>
                         
                         </ul></li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="#">Stückzahl eingeben</a></li>
                                 <li><a href="#">Materialverbrauch</a></li>
                                 <li><a href="#">Schichtübergabe</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="{{ route('drawings.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="{{ route('articles.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="{{ route('admin.shift.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">Auftrag</span><span class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="#">Stückzahl eingeben</a></li>
                                 <li><a href="#">Materialverbrauch</a></li>
                                 <li><a href="#">Schichtübergabe</a></li>
                             </ul>
                         </li>
+                        
+                           
+                        
                     </ul>
                     @endhasrole
                     </li>
+                    @auth
+                    <li><a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> <span class="nav-label">Logout</span> </a></li>
+                                
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                    @endauth
                 </ul>
 
             </div>

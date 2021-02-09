@@ -6,29 +6,29 @@
                 <div class="col-lg-12">
                 <div class="ibox ">
                     <div class="ibox-title">
-                        <h5>Artikel</h5>
+                        <div class="row">
+                            <div class="col"><h4>Artikel</h4></div>
+                        <div class="col text-right"><a href="" class="btn btn-success btn-lg"><i class="fa fa-plus-square-o"></i> Hinzufügen</a></div>
                         <div class="ibox-tools">
+                            
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
                             </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#" class="dropdown-item">Config option 1</a>
-                                </li>
-                                <li><a href="#" class="dropdown-item">Config option 2</a>
-                                </li>
-                            </ul>
+                            
                             <a class="close-link">
                                 <i class="fa fa-times"></i>
                             </a>
+                            
+                             </div>       
+                                
                         </div>
                     </div>
               <div class="ibox-content">
-                            <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
-                                   placeholder="Suchen...">
-
+                  <div class="row">
+                            <div class="col-4"><input type="text" class="form-control form-control-sm m-b-xs" id="filter"
+                                   placeholder="Suchen..."></div>
+                                   
+                            </div>
                             <table class="footable table table-stripped" data-page-size="15" data-filter=#filter>
                                 <thead>
                                 <tr>
@@ -53,8 +53,8 @@
                                                 <td>{{ $article->drawing_index }}</td>
                                                 <td >
                                                     <div class="btn-group">
-                                                        <a href="#"><button type="button" class="btn-success btn btn-xs m-r-sm ">Editieren</button></a> 
-                                                        <a href="#"><button type="button" class="btn-danger btn btn-xs  ">Löschen</button></a></td>
+                                                        <a href="#"><button type="button" class="btn-success btn btn-xs m-r-sm "><i class="fa fa-edit"></i> Bearbeiten</button></a> 
+                                                        <a href="#"><button type="button" class="btn-danger btn btn-xs  "><i class="fa fa-trash"></i> Löschen</button></a></td>
                                                     </div>
                                                 </td>
                                         

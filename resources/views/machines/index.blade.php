@@ -51,8 +51,8 @@
                                                 <td>{{ $machine->number }}</td>
                                                 <td >
                                                     <div class="btn-group">
-                                                        <a href="#"><button type="button" class="btn-success btn btn-xs m-r-sm ">Editieren</button></a> 
-                                                        <a href="#"><button type="button" class="btn-danger btn btn-xs  ">Löschen</button></a></td>
+                                                        <a href="#" class="btn btn-lg btn-white btn-bitbucket m-r-sm"><i class="fa fa-edit"></i></a> 
+                                                        <a href="#"class="btn btn-lg btn-white btn-bitbucket"><i class="fa fa-trash"></i></a></td>
                                                     </div>
                                                 </td>
                                         
