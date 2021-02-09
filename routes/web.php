@@ -19,25 +19,28 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/admin/users', 'Admin\UserController', ['except' => 'show']);
-
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-
-    Route::resource('/users', 'UserController', ['except' => 'show']);
-    Route::resource('/shift', 'ShiftController', ['except' => 'show']);
-});
-
-Route::get('/shift/depart/punching', 'ShiftController@showPunchingShift')->name('shift.punching');
-Route::get('/shift/depart/rolling', 'ShiftController@showRollingShift')->name('shift.rolling');
-
-Route::get('/qm/requali', 'QualityManagement\Requalification@index')->name('requali.index');
+    Route::group(['prefix' => 'shift/depart'], function () {
+        Route::get('/punching', 'ShiftController@showPunchingShift')->name('shift.punching');
+        Route::get('/rolling', 'ShiftController@showRollingShift')->name('shift.rolling');
+    });
 
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::resource('drawings', 'drawingController');
-    Route::resource('machines', 'MachineController');
-    Route::resource('articles', 'ArticleController');
-    Route::resource('customers', 'CustomerController');
+
+    Route::group(['middleware' => ['role:admin']], function () {
+
+        Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+
+            Route::resource('/users', 'UserController');
+            Route::resource('/shifts', 'ShiftController');
+            Route::resource('/customers', 'CustomerController');
+        });
+
+        Route::resource('drawings', 'DrawingController');
+        Route::resource('machines', 'MachineController');
+        Route::resource('articles', 'ArticleController');
+        Route::resource('customers', 'CustomerController');
+    });
 });
