@@ -42,5 +42,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('machines', 'MachineController');
         Route::resource('articles', 'ArticleController');
         Route::resource('customers', 'CustomerController');
+        Route::resource('shifts/handovers', 'ShiftHandoverController');
     });
 });
