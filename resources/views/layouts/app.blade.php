@@ -44,7 +44,7 @@
 
 </head>
 
-<body class="fixed-sidebar no-skin-config full-height-layout">
+<body class=" no-skin-config full-height-layout">
 <div id="app">
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -152,9 +152,7 @@
                         </ul></li>
                         <li><a href="#"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Stückzahl eingeben</a></li>
-                                <li><a href="#">Materialverbrauch</a></li>
-                                <li><a href="#">Schichtübergabe</a></li>
+                                <li><a href="{{ route('admin.customers.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
@@ -188,7 +186,7 @@
                     @auth
                     <li><a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> <span class="nav-label">Logout</span> </a></li>
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span class="nav-label"> Log out</span> </a></li>
                                 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -213,11 +211,17 @@
                     <ul class="nav navbar-top-links navbar-right">
                         @auth
                         <li>
-                            <a href="#"><i class="fa fa-home"></i> Home</a>
+                            <a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sign-out"></i> Log out</a>
+                        
+                        <li><a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> <span class="nav-label"> Log out</span> </a>
                         </li>
+                                
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                         @endauth
                         @guest
                         <li>
