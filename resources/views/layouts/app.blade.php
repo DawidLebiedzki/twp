@@ -169,7 +169,7 @@
                         </li>
                         <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="{{ route('admin.shift.index') }}">Verwalten</a></li>
+                                <li><a href="#">Verwalten</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span><span class="fa arrow"></span></a>
@@ -253,10 +253,10 @@
             </main>
             <div class="footer">
                 <div class="pull-right">
-                    10GB of <strong>250GB</strong> Free.
+                    Letzte Aktivität: 25.02.2021
                 </div>
                 <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2019
+                    <strong>Copyright</strong> Example Company &copy; 2021
                 </div>
             </div>
 

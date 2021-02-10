@@ -52,9 +52,10 @@
                                                 <td>{{ $article->drawing_number }}</td>
                                                 <td>{{ $article->drawing_index }}</td>
                                                 <td >
-                                                    <div class="btn-group">
-                                                        <a href="#"><button type="button" class="btn-success btn btn-xs m-r-sm "><i class="fa fa-edit"></i> Bearbeiten</button></a> 
-                                                        <a href="#"><button type="button" class="btn-danger btn btn-xs  "><i class="fa fa-trash"></i> Löschen</button></a></td>
+                                                     <div class="btn-group">
+                                                        <button type="button" class="btn-white btn btn-xs">Vorschau</button>
+                                                        <button type="button" class="btn-white btn btn-xs">Bearbeiten</button> 
+                                                        <button type="button" class="btn-white btn btn-xs">Löschen</button>
                                                     </div>
                                                 </td>
                                         
