@@ -34,7 +34,8 @@
 
     <!-- Gritter -->
     <link href="{{ asset('js/plugins/gritter/jquery.gritter.css') }}" rel="stylesheet">
-
+<!-- Stepper -->
+    <link href="{{ asset('css/plugins/steps/jquery.steps.css') }}" rel="stylesheet">
     
     <link href="{{ asset('css/plugins/footable/footable.core.css') }}" rel="stylesheet">
     
@@ -310,8 +311,11 @@
 <!-- FooTable -->
 <script src="{{ asset('js/plugins/footable/footable.all.min.js') }}" defer></script>
 
+<!-- Steps -->
+<script src="{{ asset('js/plugins/steps/jquery.steps.min.js') }}" defer></script>
 
-
+<!-- FooTable -->
+<script src="{{ asset('js/plugins/validate/jquery.validate.min.js') }}" defer></script>
 <script>
         $(document).ready(function() {
 
