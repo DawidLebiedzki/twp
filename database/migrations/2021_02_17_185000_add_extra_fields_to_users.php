@@ -20,6 +20,8 @@ class AddExtraFieldsToUsers extends Migration
             $table->string('city')->nullable();
             $table->string('street')->nullable();
             $table->string('street_number')->nullable();
+            $table->string('avatar')->default('default.jpg');
+            $table->integer('depart_id')->nullable();
         });
     }
 
@@ -37,6 +39,8 @@ class AddExtraFieldsToUsers extends Migration
             $table->dropColumn('city');
             $table->dropColumn('street');
             $table->dropColumn('street_number');
+            $table->dropColumn('avatar');
+            $table->dropColumn('depart_id');
         });
     }
 }
