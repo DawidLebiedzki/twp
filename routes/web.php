@@ -22,6 +22,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 
+    Route::resource('dashboards', 'DashboardController');
+
     Route::group(['prefix' => 'shift/depart'], function () {
         Route::get('/punching', 'ShiftController@showPunchingShift')->name('shift.punching');
         Route::get('/rolling', 'ShiftController@showRollingShift')->name('shift.rolling');
