@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-
-use App\Drawing;
+use App\Http\Controllers\Controller;
+use App\Setting;
 use Illuminate\Http\Request;
 
-class DrawingController extends Controller
+class UserSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +15,7 @@ class DrawingController extends Controller
      */
     public function index()
     {
-        $drawings = Drawing::all();
-        return view('drawings.index')->with('drawings', $drawings);
-    }
-
-
-    public function getDrawing(Request $request)
-    {
-        # code...
+        return view('users.settings.index');
     }
 
     /**
@@ -32,7 +25,7 @@ class DrawingController extends Controller
      */
     public function create()
     {
-        return view('drawings.create');
+        //
     }
 
     /**
@@ -49,10 +42,10 @@ class DrawingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Setting $setting)
     {
         //
     }
@@ -60,10 +53,10 @@ class DrawingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Setting $setting)
     {
         //
     }
@@ -72,10 +65,10 @@ class DrawingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Setting $setting)
     {
         //
     }
@@ -83,10 +76,10 @@ class DrawingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Setting $setting)
     {
         //
     }

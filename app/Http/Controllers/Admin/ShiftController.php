@@ -8,10 +8,7 @@ use Illuminate\Http\Request;
 class ShiftController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +16,7 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        return view('admin.shift.index');
+        return view('admin.shifts.index');
     }
 
     /**

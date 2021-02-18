@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\QualityManagement;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Requalification extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class Requalification extends Controller
      */
     public function index()
     {
-        return view('qm.requalification.index');
+        //
     }
 
     /**

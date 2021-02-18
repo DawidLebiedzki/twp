@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shift;
 
-
-use App\Drawing;
 use Illuminate\Http\Request;
 
-class DrawingController extends Controller
+class HandoverController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +13,7 @@ class DrawingController extends Controller
      */
     public function index()
     {
-        $drawings = Drawing::all();
-        return view('drawings.index')->with('drawings', $drawings);
-    }
-
-
-    public function getDrawing(Request $request)
-    {
-        # code...
+        return view('shift.handovers.index');
     }
 
     /**
@@ -32,7 +23,7 @@ class DrawingController extends Controller
      */
     public function create()
     {
-        return view('drawings.create');
+        //
     }
 
     /**

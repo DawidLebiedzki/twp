@@ -95,15 +95,13 @@
                             <li>
                                 <a href="#" id="damian">Profilabteilung <span class="fa arrow"></span></a>
                                     <ul class="nav nav-third-level collapse">
-                                        <li><a href="#">Stückzahl eingeben</a></li>
-                                        <li><a href="#">Materialverbrauch</a></li>
+                                        
                                         <li><a href="#">Schichtübergabe</a></li>
                                     </ul>
                                     </li>
                             <li><a href="#"> <span class="nav-label">Stanzabteilung</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level collapse">
-                        <li><a href="#">Stückzahl eingeben</a></li>
-                        <li><a href="#">Materialverbrauch</a></li>
+                       
                         <li><a href="#">Schichtübergabe</a></li>
                         </ul></li>
                         </ul>
@@ -115,15 +113,15 @@
                   
                     <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="{{ route('shift.rolling') }}">Profilabteilung</a></li>
-                            <li><a href="{{ route('shift.punching') }}">Stanzabteilung</a></li>
+                            <li><a href="">Profilabteilung</a></li>
+                            <li><a href="#">Stanzabteilung</a></li>
                         </ul>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-database"></i> <span class="nav-label">Stammdaten</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ route('drawings.index') }}">Zeichnung</a></li>
-                            <li><a href="{{ route('shift.punching') }}">Lehrenbeschreibung</a></li>
+                            <li><a href="#">Lehrenbeschreibung</a></li>
                         </ul>
                     </li>
                      <li>
@@ -148,7 +146,7 @@
                         </ul></li>
                         <li><a href="#"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                        <li><a href="{{ route('machines.index') }}">Verwalten</a></li>
+                        <li><a href="#">Verwalten</a></li>
                         
                         </ul></li>
                         <li><a href="#"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
@@ -158,7 +156,7 @@
                         </li>
                         <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="{{ route('drawings.index') }}">Verwalten</a></li>
+                                <li><a href="#">Verwalten</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>

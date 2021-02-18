@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-
-use App\Drawing;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DrawingController extends Controller
+class UserShiftHandoverController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +14,7 @@ class DrawingController extends Controller
      */
     public function index()
     {
-        $drawings = Drawing::all();
-        return view('drawings.index')->with('drawings', $drawings);
-    }
-
-
-    public function getDrawing(Request $request)
-    {
-        # code...
+        //
     }
 
     /**
@@ -32,7 +24,7 @@ class DrawingController extends Controller
      */
     public function create()
     {
-        return view('drawings.create');
+        //
     }
 
     /**

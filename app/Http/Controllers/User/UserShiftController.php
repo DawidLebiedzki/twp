@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shift;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +24,7 @@ class ShiftController extends Controller
      */
     public function index()
     {
-        return view('shift.depart.punching.index');
+        return view('shifts.index');
     }
 
     /**
