@@ -45,7 +45,7 @@
 
 </head>
 
-<body class=" no-skin-config full-height-layout">
+<body>
 <div id="app">
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
@@ -56,8 +56,9 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <img alt="image" class="rounded-circle" src="{{ asset('img/user-avatar.jpg') }}"/ height="50" width="50">
                                     @auth
-                                       <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span>
-                                       {{-- <span class="block m-t-xs font-bold">{{ Auth::user()->name }}</span> --}}
+                                       <span class="block m-t-xs font-bold">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
+                                        
+
                                     @endauth                                      
                                     @guest
                                          <span class="block m-t-xs font-bold">Gast</span>
@@ -161,7 +162,7 @@
                         </li>
                         <li><a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li><a href="{{ route('articles.index') }}">Verwalten</a></li>
+                                <li><a href="{{ route('admin.articles.index') }}">Verwalten</a></li>
                             </ul>
                         </li>
                         <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
@@ -236,20 +237,7 @@
 {{-- End navbar --}}
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                    {{-- <h2>{{ $webpage }}</h2> --}}<h2>Page</h2>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a>App views</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <strong>Issue list</strong>
-                        </li>
-                    </ol>
-                </div>
+                @yield('content-path')
             </div>
             <main class="py-4">
                 @yield('content')
@@ -263,8 +251,8 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+        
+        </div></div>
 </div>
 
 
