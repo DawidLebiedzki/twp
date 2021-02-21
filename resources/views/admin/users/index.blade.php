@@ -1,6 +1,31 @@
 @extends('layouts.app')
 
+@section('content-path')
+    <div class="col-lg-10">
+                    <h2>Adminitration</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url('/home') }}">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a>Administration</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="#">Benutzer</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <a href="{{ url()->current() }}"><strong>Verwalten</strong></a>
+                        </li>
+                    </ol>
+                </div>
+@endsection
+
 @section('content')
+<!-- will be used to show any messages -->
+@if (Session::has('message'))
+    <div class="alert alert-info">{{ Session::get('message') }}</div>
+@endif
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -39,6 +64,7 @@
                                 <th>Personalnummer</th>
                                 <th>Name</th>
                                 <th data-hide="phone,tablet">Berechtigungen</th>
+                                <th data-hide="phone,tablet">Hinzugefügt am:</th>
                                 <th class="text-right">Action</th>
                             </tr>
                         </thead>
@@ -46,17 +72,18 @@
                             @foreach($users as $user)
                                 <tr>
                                     <td>{{ $user->username }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ implode(', ',$user->roles()->get()->pluck('name')->toArray()) }}
+                                    <td>{{ $user->fname }} {{ $user->lname }}</td>
+                                    <td>{{ implode(', ',$user->roles()->get()->pluck('displayed_name')->toArray()) }}
+                                    <td>{{ date_format($user->created_at, 'd.m.Y') }}</td>
                                     </td>
                                     <td class="text-right">
                                         <div class="btn-group tooltip-demo">
                                             <button type="button" class="btn-white btn btn-xs"><i class="fa fa-eye"
                                                     data-toggle="tooltip" data-placement="left"
                                                     title="Vorschau"></i></button>
-                                            <button type="button" class="btn-white btn btn-xs"><i class="fa fa-edit"
+                                            <a href="{{ route('admin.users.edit', $user->id) }}" type="button" class="btn-white btn btn-xs"><i class="fa fa-edit"
                                                     data-toggle="tooltip" data-placement="bottom"
-                                                    title="Bearbeiten"></i></button>
+                                                    title="Bearbeiten"></i></a>
                                             <button type="button" class="btn-white btn btn-xs"><i class="fa fa-trash"
                                                     data-toggle="tooltip" data-placement="right"
                                                     title="Löschen"></i></button>
