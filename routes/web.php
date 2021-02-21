@@ -42,7 +42,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         Route::namespace('User')->prefix('users')->name('users.')->group(function () {
-            Route::resource('/settings', 'SettingController');
+            Route::resource('/settings', 'UserSettingController');
+            Route::resource('/shifts', 'UserShiftController');
+            Route::resource('/drawings', 'UserDrawingController');
+            Route::resource('/shift-handovers', 'UserShiftHandoverController');
         });
     });
 });
