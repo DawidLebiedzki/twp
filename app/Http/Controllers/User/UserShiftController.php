@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Shift;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ShiftController extends Controller
+class UserShiftController extends Controller
 {
 
     public function showPunchingShift()
