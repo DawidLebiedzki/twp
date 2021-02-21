@@ -1,5 +1,17 @@
 @extends('layouts.app')
 
+@section('content-path')
+    <div class="col-lg-10">
+                    <h2>Advanced Form Elements</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="{{ url('/home') }}">Home</a>
+                        </li>
+                        
+                    </ol>
+                </div>
+@endsection
+
 @section('content')
  <div class="p-w-md m-t-sm">
                     <div class="row">
