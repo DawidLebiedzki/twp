@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Session;
 use App\User;
-use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -19,6 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        
+
         $users = User::all();
         return view('admin.users.index')->with('users', $users);
     }
@@ -30,7 +34,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::all();
+        return view('admin.users.create')->with('roles', $roles);
     }
 
     /**
@@ -41,7 +46,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validatedData = $request->validate([
+            'username'=>'required|unique:users|numeric',
+            'fname'=>'required|max:255',
+            'lname' => 'required|max:255',
+            'role'=>'required'
+        ]);        
+
+        $user = User::create($request->all());
+
+        $user->assignRole($request->role);
+
+        // redirect
+        Session::flash('message', 'Successfully created user!');
+        return Redirect::route('admin.users.index');
     }
 
 
