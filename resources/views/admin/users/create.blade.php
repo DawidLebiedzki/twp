@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($errors->any())
+    <div>
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dissmisable">{{ $error }}</div>
+        @endforeach
+    </div>
+@endif
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -8,7 +15,7 @@
                 <div class="ibox-title">
                     <div class="row">
                         <div class="col">
-                            <h2>Benutzer erstellen</h2>
+                            <h3>Neuen Benutzer hinzufügen</h2>
                         </div>
                         <div class="ibox-tools">
 
@@ -25,83 +32,89 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form id="form" action="#" class="wizard-big">
-                        <h1>Konto</h1>
-                        <fieldset>
-                            <h2>Kontoinformationen</h2>
+                    <form id="user-create-form" method="POST" action="{{ route('admin.users.store') }}">
+                      @csrf
+                       <div class="row">
+                            <div class="col-md-8" >
+                            <div class="form-group row ">
+                                <label class="col-md-3 col-form-label">
+                                    <h3>Benutzername </h3>
+                                </label>
+
+                                <div class="col-md-8 col-sm-8"><input type="text" class="form-control" id="username"
+                                        name="username"></div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="col-md-3 col-form-label">
+                                    <h3>Passwort </h3>
+                                </label>
+
+                                <div class="col-md-8 col-sm-10"><input type="password" class="form-control"
+                                        id="password" name="password"></div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="col-md-3 col-form-label">
+                                    <h3>Passwort bestätigen </h3>
+                                </label>
+
+                                <div class="col-md-8 col-sm-10"><input type="password" class="form-control"
+                                        id="password_confirm"></div>
+                            </div>
+                            <div class="form-group row ">
+
+                                <label class=col-md-3 col-form-label">
+                                    <h3>Vorname </h3>
+                                </label>
+                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="fname" name="fname">
+                                </div>
+
+                            </div>
+                            <div class="form-group row ">
+
+                                <label class="col-md-3 col-form-label">
+                                    <h3>Nachname </h3>
+                                </label>
+                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="lname" name="lname">
+                                </div>
+
+                            </div>
                             <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="form-group">
-                                        <label>Personalnummer *</label>
-                                        <input id="userName" name="userName" type="text" class="form-control required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Passwort *</label>
-                                        <input id="password" name="password" type="password" class="form-control required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Passwort bestätigen *</label>
-                                        <input id="confirm_password" name="confirm_password" type="password" class="form-control required">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="text-center">
-                                        <div style="margin-top: 20px">
-                                            <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
-                                        </div>
-                                    </div>
+                                <div class="col-md-11 mb-3">
+                                    <span>
+                                        <h3>Berechtigung </h3>
+                                    </span>
+
+                                    <hr>
                                 </div>
                             </div>
+                            <div class="form-group row">
 
-                        </fieldset>
-                        <h1>Personaldaten</h1>
-                        <fieldset>
-                            <h2>Berechtigung</h2>
+                                <label class="col-md-3 col-form-label">
+                                    <h3>Benutzerrolle </h3>
+                                </label>
+                                <div class="col-md-8 col-sm-10"><select class="select2_demo_1 form-control" id="role"
+                                        name="role">
+                                        @foreach ($roles as $role)
+                                            <option value="{{ $role->id }}">{{ $role->displayed_name }}</option>
+                                        @endforeach
+                                        
+                                    
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="form-group">
-                                        <label>Vorname *</label>
-                                        <input id="fname" name="fname" type="text" class="form-control required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Nachname *</label>
-                                        <input id="lname" name="lname" type="text" class="form-control required ">
-                                    </div>
+                            <div class="col-md-11 mt-3 text-right">
+                                <button type="submit" class="btn btn-success">Neuen Benutzer hinzufügen</button>
+                            </div></div>
+                        </div>
+                        <div class="col-md-4 text-center">
 
-
-                                    <div class="form-group">
-
-                                        <label>Abteilung *</label>
-                                        <select id="department" class="form-control m-b" name="account">
-                                            <option value="">Profilieren</option>
-                                            <option value="">Stanzerei</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label>Profilbild </label>
-                                    <div class="custom-file">
-                                        <input id="logo" type="file" class="custom-file-input">
-                                        <label for="logo" class="custom-file-label">Wähle Datei...</label>
-                                    </div> </div>
-                                </div>
+                            <div style="margin-top: 120px">
+                                <i class="fa fa-user" style="font-size: 180px;color: #e5e5e5 "></i>
                             </div>
-                        </fieldset>
 
-                        <h1>Berechtigung</h1>
-                        <fieldset>
-                            <div class="text-center" style="margin-top: 120px">
-                                <h2>You did it Man :-)</h2>
-                            </div>
-                        </fieldset>
-
-                        <h1>Übersicht</h1>
-                        <fieldset>
-                            <h2>Terms and Conditions</h2>
-                            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label
-                                for="acceptTerms">I agree with the Terms and Conditions.</label>
-                        </fieldset>
+                        </div>
+                       </div>
                     </form>
                 </div>
             </div>
@@ -109,103 +122,34 @@
     </div>
 
 </div>
-</div>
+
 @endsection
 
 @section('script')
 <!-- Page-Level Scripts -->
+<script src="{{ asset('js/plugins/select2/select2.full.min.js') }}" defer></script>
 
 <script>
     $(document).ready(function () {
-        
-        $("#form").steps({
-            bodyTag: "fieldset",
-            onStepChanging: function (event, currentIndex, newIndex) {
-                // Always allow going backward even if the current step contains invalid fields!
-                if (currentIndex > newIndex) {
-                    return true;
-                }
 
-                // Forbid suppressing "Warning" step if the user is to young
-                if (newIndex === 3 && Number($("#age").val()) < 18) {
-                    return false;
-                }
-
-                var form = $(this);
-
-                // Clean up if user went backward before
-                if (currentIndex < newIndex) {
-                    // To remove error styles
-                    $(".body:eq(" + newIndex + ") label.error", form).remove();
-                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
-                }
-
-                // Disable validation on fields that are disabled or hidden.
-                form.validate().settings.ignore = ":disabled,:hidden";
-
-                // Start validation; Prevent going forward if false
-                return form.valid();
-            },
-            onStepChanged: function (event, currentIndex, priorIndex) {
-                // Suppress (skip) "Warning" step if the user is old enough.
-                if (currentIndex === 2 && Number($("#age").val()) >= 18) {
-                    $(this).steps("next");
-                }
-
-                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-                if (currentIndex === 2 && priorIndex === 3) {
-                    $(this).steps("previous");
-                }
-            },
-            onFinishing: function (event, currentIndex) {
-                var form = $(this);
-
-                // Disable validation on fields that are disabled.
-                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                form.validate().settings.ignore = ":disabled";
-
-                // Start validation; Prevent form submission if false
-                return form.valid();
-            },
-            onFinished: function (event, currentIndex) {
-                var form = $(this);
-
-                // Submit form input
-                form.submit();
-            },
-            labels: {
-                cancel: 'Abbrechen',
-                finish: 'Speichern',
-                next: 'Weiter',
-                previous: 'Zurück'
-            }
-        }).validate({
-            errorPlacement: function (error, element) {
-                element.before(error);
-            },
-            rules: {
-                userName: {
-                    required: true,
-                    number: true,
-                    maxlength:3
-                },
-                password:{
-                    minlength: 3,
-                    maxlength: 10
-                },
-                confirm_password: {
-                    equalTo: "#password"
-                },
-
-            },
-            messages:{
-                userName:{
-                    required:"Dieses Feld muss ausgefüllt werden",
-                    number: "Geben Sie eine gültige Nummer ein"
-                }
-            }
+        $(".select2_demo_1").select2({
+            theme: 'bootstrap4',
+            placeholder: "Wähle die Rolle...",
+            allowClear: true
         });
+
+        $('#user-create-form').validate({
+        rules: {
+            username: "required",
+            password: "required",
+            password_confirm: "#password",
+            fname: "required",
+            lname: "required",
+            role: "required"  
+        }
     });
 
+    });
+    
 </script>
 @endsection
