@@ -140,42 +140,28 @@
                         @hasrole('admin')
                         <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="#"><i class="fa fa-user"></i> <span class="nav-label">Benutzer</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                        <li><a href="{{ route('admin.users.index') }}">Verwalten</a></li>
+                        <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> <span class="nav-label">Benutzer</span></a>
                         
-                        </ul></li>
-                        <li><a href="#"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                        <li><a href="#">Verwalten</a></li>
                         
-                        </ul></li>
-                        <li><a href="#"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="{{ route('admin.customers.index') }}">Verwalten</a></li>
-                            </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Verwalten</a></li>
-                            </ul>
+                        <li><a href="#"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span></a>
+                        
+                        
                         </li>
-                        <li><a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="{{ route('admin.articles.index') }}">Verwalten</a></li>
-                            </ul>
+                        <li><a href="{{ route('admin.customers.index') }}"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span></a>
+                            
                         </li>
-                        <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Verwalten</a></li>
-                            </ul>
+                        <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span></span></a>
+                            
                         </li>
-                        <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span><span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Stückzahl eingeben</a></li>
-                                <li><a href="#">Materialverbrauch</a></li>
-                                <li><a href="#">Schichtübergabe</a></li>
-                            </ul>
+                        <li><a href="{{ route('admin.articles.index') }}"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span></span></a>
+                           
+                        </li>
+                        <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span></a>
+                           
+                        </li>
+                        <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span></a>
+                            
                         </li>
                         
                            
