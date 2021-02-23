@@ -144,7 +144,7 @@
                         
                         
                         </li>
-                        <li><a href="#"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span></a>
+                        <li><a href="{{ route('admin.machines.index') }}"><i class="fa fa-gear"></i> <span class="nav-label">Maschinen</span></a>
                         
                         
                         </li>
