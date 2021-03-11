@@ -51,4 +51,9 @@ class User extends Authenticatable implements HasMedia
     {
         $this->addMediaCollection('avatars');
     }
+
+    public function drawings()
+    {
+        return $this->hasMany('App\Drawing');
+    }
 }
