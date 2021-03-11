@@ -57,11 +57,11 @@
                                 placeholder="Suchen..."></div>
 
                     </div>
-                    <table class="footable table table-stripped" data-page-size="15" data-filter=#filter>
+                    <table class="footable table footable-stripped default footable-loadded" data-page-size="20" data-filter=#filter>
                         <thead>
                             <tr>
 
-                                <th>Personalnummer</th>
+                                <th >Personalnummer</th>
                                 <th>Name</th>
                                 <th data-hide="phone,tablet">Berechtigungen</th>
                                 <th data-hide="phone,tablet">Hinzugefügt am:</th>
@@ -71,7 +71,7 @@
                         <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->id }}</td>
                                     <td>{{ $user->fname }} {{ $user->lname }}</td>
                                     <td>{{ implode(', ',$user->roles()->get()->pluck('displayed_name')->toArray()) }}
                                     <td>{{ date_format($user->created_at, 'd.m.Y') }}</td>
