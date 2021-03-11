@@ -13,4 +13,9 @@ class Article extends Model
     {
         return $this->belongsTo('App\Customer');
     }
+
+    public function drawings()
+    {
+        return $this->hasMany('App\Drawing');
+    }
 }
