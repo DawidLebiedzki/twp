@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use App\Article;
@@ -25,12 +26,19 @@ class Drawing extends Model implements HasMedia
         'user_id'
     ];
 
-    public function drawings()
+    public function article()
     {
-        return $this->belongsToMany('App\Article');
+        return $this->belongsTo('App\Article');
     }
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsTo('App\User');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumb')
+            ->width(50)
+            ->height(50);
     }
 }
