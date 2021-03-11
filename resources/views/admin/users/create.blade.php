@@ -58,7 +58,7 @@
                                 </label>
 
                                 <div class="col-md-8 col-sm-10"><input type="password" class="form-control"
-                                        id="password_confirm"></div>
+                                        id="password_confirm" name="password_confirm"></div>
                             </div>
                             <div class="form-group row ">
 
@@ -140,12 +140,47 @@
 
         $('#user-create-form').validate({
         rules: {
-            username: "required",
-            password: "required",
-            password_confirm: "#password",
-            fname: "required",
-            lname: "required",
+            username: {
+                required: true,
+                number:true
+            },
+            password: {
+                required: true,
+                minlength: 4
+            },
+            password_confirm: {
+                required: true,
+                equalTo: "#password"
+            },
+            fname:  {
+                required: true,
+                minlength: 2
+            },
+            lname:  {
+                required: true,
+                minlength: 2
+            },
             role: "required"  
+        },
+        messages:{
+            username: {
+                required:"Dieses Feld ist erforderlich",
+                number:"Dieses Feld muss eine Zahl sein"
+            },
+            password: "Dieses Feld ist erforderlich",
+            password_confirm: {
+                required: "Dieses Feld ist erforderlich",
+                equalTo: "Passwort muss gleich sein"
+            },
+            fname: {
+                required: "Dieses Feld ist erforderlich",
+                minlength: "Mindestens 2 Zeichen"
+            },
+            lname:{
+                required: "Dieses Feld ist erforderlich",
+                minlength: "Mindestens 2 Zeichen"
+            },
+            role: "Dieses Feld ist erforderlich"
         }
     });
 
