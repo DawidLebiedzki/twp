@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('/shifts', 'ShiftController');
             Route::resource('/articles', 'ArticleController');
             Route::resource('/dashboards', 'DashboardController');
+            Route::resource('/drawings', 'DrawingController');
         });
 
         Route::resource('drawings', 'DrawingController');

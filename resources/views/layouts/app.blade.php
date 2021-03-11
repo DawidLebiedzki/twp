@@ -151,7 +151,7 @@
                         <li><a href="{{ route('admin.customers.index') }}"><i class="fa fa-users"></i> <span class="nav-label">Kunden</span></a>
                             
                         </li>
-                        <li><a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span></span></a>
+                        <li><a href="{{ route('admin.drawings.index') }}"><i class="fa fa-picture-o"></i> <span class="nav-label">Zeichnung</span></span></a>
                             
                         </li>
                         <li><a href="{{ route('admin.articles.index') }}"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span></span></a>
