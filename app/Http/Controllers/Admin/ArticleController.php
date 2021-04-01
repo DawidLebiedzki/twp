@@ -20,4 +20,17 @@ class ArticleController extends Controller
         $articles = Article::all();
         return view('articles.index')->with('articles', $articles)->with('webpage', $webPage);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $article = Article::find($id);
+
+        return $article->toJson();
+    }
 }
