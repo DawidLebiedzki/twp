@@ -123,11 +123,89 @@
 
 @section('script')
 <!-- Page-Level Scripts -->
+<!-- Page-Level Scripts -->
+<script src="{{ asset('js/plugins/select2/select2.full.min.js') }}" defer></script>
+
 <script>
     $(document).ready(function () {
 
-        $('.footable').footable();
+        $(".select2_demo_1").select2({
+            theme: 'bootstrap4',
+            placeholder: "Wähle einen Artikel...",
+            allowClear: true
+        });
 
+         $('.footable').footable();
+
+        $('#drawing-create-form').validate({
+            rules: {
+                article_id: {
+                    required: true,
+
+                },
+                drawing_number: {
+                    required: true,
+
+                },
+
+                index: {
+                    required: true,
+
+                },
+                stage: {
+                    required: true,
+
+                },
+                operation: {
+                    required: true,
+                },
+                drawing: {
+                    required: true,
+                }
+            },
+            messages: {
+                article_id: {
+                    required: "Dieses Feld ist erforderlich",
+
+                },
+                drawing_number: {
+                    required: "Dieses Feld ist erforderlich",
+
+                },
+
+                index: {
+                    required: "Dieses Feld ist erforderlich",
+
+                },
+                stage: {
+                    required: "Dieses Feld ist erforderlich",
+
+                },
+                operation: "Dieses Feld ist erforderlich",
+                drawing: "Dieses Feld ist erforderlich"
+            }
+        });
+        $('.custom-file-input').on('change', function () {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        $('.custom-select-article-id').change( function() {
+            
+            var articleId = this.value;
+            var url = "articles/";
+
+                $.ajax({
+                    url: url + articleId,
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#drawing_number').val(result.drawing_number);
+                        $('#index').val(result.drawing_index);
+                    }
+                });
+        });
+        //  
 
     });
 
