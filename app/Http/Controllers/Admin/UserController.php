@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Redirect;
+use DataTables;
 
 class UserController extends Controller
 {
@@ -19,12 +20,38 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+            $model = User::with('roles');
+            if($request->ajax()){
+            return Datatables::eloquent($model)
+                ->addIndexColumn()
+                ->editColumn('role', function(User $user){
+                    return implode(', ', $user->roles()->get()->pluck('displayed_name')->toArray());
 
+                })
+                ->editColumn('created_at', function ($model) {
+                    return $model->created_at->format('d.m.Y');
+                })
+                ->addColumn('action', function(User $user){
+                    $btn =  '<a  href="users/' . $user->id . '" type="button" class="btn-white btn btn-xs"><i class="fa fa-eye"
+                                                    data-toggle="tooltip" data-placement="left"
+                                                    title="Vorschau"></i></a>
+                            <a href="users/'.$user->id.'/edit" type="button" class="btn-white btn btn-xs"><i class="fa fa-edit"
+                                                    data-toggle="tooltip" data-placement="bottom"
+                                                    title="Bearbeiten"></i></a>
+                            <button type="button" class="btn-white btn btn-xs"><i class="fa fa-trash"
+                                                    data-toggle="tooltip" data-placement="right"
+                                                    title="Löschen"></i></button>';
+                    return $btn;
+                 })
+                ->rawColumns(['action'])
+                ->make(true);
+            }
+       
 
-        $users = User::all();
-        return view('admin.users.index')->with('users', $users);
+       return view('admin.users.index');
     }
 
     /**
@@ -46,6 +73,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $file = $request->file('avatar');
 
         $validatedData = $request->validate([
             'username'=>'required|unique:users|numeric',
@@ -58,6 +86,7 @@ class UserController extends Controller
 
         $user->assignRole($request->role);
 
+        $user->addMedia($request->avatar)->toMediaCollection('avatars');
         // redirect
         Session::flash('message', 'Successfully created user!');
         return Redirect::route('admin.users.index');
@@ -72,13 +101,24 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //dd($user);
-
+        // $user = User::find($id);
         $roles = Role::all();
-
+        
         return view('admin.users.edit')->with([
             'user' => $user,
             'roles' => $roles
+        ]);
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        $roles = Role::all();
+        $avatar = $user;
+        return view('admin.users.show')->with([
+            'user' => $user,
+            'roles' => $roles,
+            'avatar' => $avatar
         ]);
     }
 
@@ -89,10 +129,23 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $user->roles()->sync($request->roles);
+        
+        $request->validate([
+            
+            'fname' => 'required|max:255',
+            'lname' => 'required|max:255',
+            'role' => 'required'
+        ]);
+        
+        $user = User::find($id);
+        $user->update($request->all());
 
+        $user->syncRoles($request->role);
+        $user->addMedia($request->avatar)->toMediaCollection('avatars');
+        // redirect
+        Session::flash('message', 'Benutzer wurde aktualiesiert!');
         return redirect()->route('admin.users.index');
     }
 
@@ -102,8 +155,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        // redirect
+        Session::flash('message', 'Benutzer wurde entfernt!');
+        return redirect()->route('admin.users.index');
     }
 }
