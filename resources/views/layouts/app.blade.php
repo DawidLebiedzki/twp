@@ -29,6 +29,7 @@
    
     <link href="{{ asset('css/plugins/select2/select2-bootstrap4.min.css') }}" rel="stylesheet">  
    
+    <link href="{{ asset('css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
     <!-- Toastr style -->
     <link href="{{ asset('css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
@@ -54,7 +55,7 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="image" class="rounded-circle" src="{{ asset('img/user-avatar.jpg') }}"/ height="50" width="50">
+                                <img alt="image" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50" width="50">
                                     @auth
                                        <span class="block m-t-xs font-bold">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
                                         
@@ -68,7 +69,7 @@
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 
                                 @auth 
-                                <li><a class="dropdown-item" href="{{ url('/home') }}">Profil</a></li>
+                                <li><a class="dropdown-item" href="{{ route('users.settings.show', Auth::user()) }}">Profil</a></li>
                                 <li><a class="dropdown-item" href="{{ url('/home') }}">Nachrichten</a></li>
                                 <li class="dropdown-divider"></li>      
                                    
@@ -163,7 +164,9 @@
                         <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span></a>
                             
                         </li>
-                        
+                        <li><a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Einstellungen</span></a>
+                            
+                        </li>
                            
                         
                     </ul>
