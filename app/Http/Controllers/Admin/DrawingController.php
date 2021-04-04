@@ -13,7 +13,7 @@ class DrawingController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->sortBy('article_number_intern');
 
         $drawings = Drawing::all();
         return view('admin.drawings.index')->with('drawings', $drawings)->with('articles', $articles);
