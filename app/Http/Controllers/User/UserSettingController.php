@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\User;
 
 class UserSettingController extends Controller
 {
@@ -45,9 +47,15 @@ class UserSettingController extends Controller
      * @param  \App\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function show(Setting $setting)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::all();
+
+        return view('users.settings.show')->with([
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
