@@ -10,7 +10,8 @@
 @endif
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col"></div>
+        <div class="col-lg-10">
             <div class="ibox ">
                 <div class="ibox-title">
                     <div class="row">
@@ -32,67 +33,120 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form id="user-create-form" method="POST" action="{{ route('admin.users.store') }}">
+                    <form id="user-create-form" method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
                       @csrf
                        <div class="row">
                             <div class="col-md-8" >
-                            <div class="form-group row ">
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Benutzername </h3>
+                            <div class="form-group">
+                                <label>
+                                    Benutzername *
                                 </label>
 
-                                <div class="col-md-8 col-sm-8"><input type="text" class="form-control" id="username"
-                                        name="username"></div>
+                                <input type="text" class="form-control" id="username"
+                                        name="username">
                             </div>
-                            <div class="form-group row ">
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Passwort </h3>
+                            <div class="form-group">
+                                <label>
+                                    Passwort *
                                 </label>
 
-                                <div class="col-md-8 col-sm-10"><input type="password" class="form-control"
-                                        id="password" name="password"></div>
+                                <input type="password" class="form-control"
+                                        id="password" name="password">
                             </div>
-                            <div class="form-group row ">
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Passwort bestätigen </h3>
+                            <div class="form-group">
+                                <label>
+                                    Passwort bestätigen *
                                 </label>
 
-                                <div class="col-md-8 col-sm-10"><input type="password" class="form-control"
-                                        id="password_confirm" name="password_confirm"></div>
+                                <input type="password" class="form-control"
+                                        id="password_confirm" name="password_confirm">
                             </div>
-                            <div class="form-group row ">
+                            <div class="form-group">
 
-                                <label class=col-md-3 col-form-label">
-                                    <h3>Vorname </h3>
+                                <label>
+                                    Vorname *
                                 </label>
-                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="fname" name="fname">
-                                </div>
+                                <input type="text" class="form-control " id="fname" name="fname">
+                                
 
                             </div>
-                            <div class="form-group row ">
+                            <div class="form-group">
 
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Nachname </h3>
+                                <label>
+                                    Nachname *
                                 </label>
-                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="lname" name="lname">
-                                </div>
+                                <input type="text" class="form-control " id="lname" name="lname">
+                                
 
                             </div>
-                            <div class="row">
-                                <div class="col-md-11 mb-3">
+                            {{-- <div class="row">
+                               <div class="col">
                                     <span>
-                                        <h3>Berechtigung </h3>
+                                        <h4>Adresse:</h4>
+                                    </span>
+
+                                    <hr>
+                               </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <div class="col-md-7">
+                                    <label>
+                                        Straße
+                                    </label>
+                                    <input type="text" class="form-control " id="street" name="street">
+                                </div>
+                                <div class="col"></div>
+                                <div class="col-md-4">
+                                    
+                                    <label>
+                                        Nummer 
+                                    </label>
+                                    <input type="text" class="form-control " id="street_number" name="street_number">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-3 ">
+                                <label>
+                                    PLZ
+                                </label>
+                                 <input type="text" class="form-control " id="zip_code" name="zip_code">
+                                </div>
+
+                            <div class="col"></div>
+                            <div class="col-md-8">
+
+                                <label>
+                                    Stadt 
+                                </label>
+                               <input type="text" class="form-control " id="city" name="city">
+                               
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Profil Bild 
+                                </label>                               
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input " id="avatar" name="avatar">
+                                        <label class="custom-file-label" for="customFile">Wähle die Datei..</label>
+                                    </div>   
+                            </div>
+                            <div class="row m-t-md">
+                                <div class="col-md-12 m-t-md">
+                                    <span>
+                                        <h4>Berechtigung: </h4>
                                     </span>
 
                                     <hr>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group">
 
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Benutzerrolle </h3>
+                                <label>
+                                    Benutzerrolle 
                                 </label>
-                                <div class="col-md-8 col-sm-10"><select class="select2_demo_1 form-control" id="role"
+                                <select class="select2_demo_1 form-control" id="role"
                                         name="role">
                                         @foreach ($roles as $role)
                                             <option value="{{ $role->id }}">{{ $role->displayed_name }}</option>
@@ -100,10 +154,10 @@
                                         
                                     
                                     </select>
-                                </div>
+                                
                             </div>
                             <div class="row">
-                            <div class="col-md-11 mt-3 text-right">
+                            <div class="col-md-12 mt-3 text-right">
                                 <button type="submit" class="btn btn-success">Neuen Benutzer hinzufügen</button>
                             </div></div>
                         </div>
@@ -119,6 +173,7 @@
                 </div>
             </div>
         </div>
+        <div class="col"></div>
     </div>
 
 </div>
@@ -160,7 +215,11 @@
                 required: true,
                 minlength: 2
             },
-            role: "required"  
+            role: "required",
+            zip_code:  {
+                number:true
+            },
+             
         },
         messages:{
             username: {
@@ -183,6 +242,11 @@
             role: "Dieses Feld ist erforderlich"
         }
     });
+
+    $('.custom-file-input').change( function () {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
 
     });
     

@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($errors->any())
+    <div>
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dissmisable">{{ $error }}</div>
+        @endforeach
+    </div>
+@endif
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -25,52 +32,123 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <form id="user-create-form" method="PUT" action="{{ route('admin.users.update', $user->id) }}">
+                    <form id="user-create-form" method="POST" action="{{ route('admin.users.update', $user->id) }}" enctype="multipart/form-data">
                       @csrf
+                      @method('PUT')
+                      {{ method_field('PUT') }}
+                       
                        <div class="row">
                             <div class="col-md-8" >
-                            <div class="form-group row ">
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Benutzername </h3>
+                            <div class="form-group">
+                                <label>
+                                    Benutzername *
                                 </label>
 
-                                <div class="col-md-8 col-sm-8"><input type="text" class="form-control" id="username"
-                                        name="username" value="{{ $user->username }}"></div>
+                                <input type="text" class="form-control" id="username" name="username"
+                                         value="{{ $user->username }}" disabled>
                             </div>
-                            
-                            <div class="form-group row ">
-
-                                <label class=col-md-3 col-form-label>
-                                    <h3>Vorname </h3>
+                            <div class="form-group">
+                                <label>
+                                    Passwort *
                                 </label>
-                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="name" name="fname" value="{{ $user->fname }}">
-                                </div>
 
+                                <input type="password" class="form-control"
+                                        id="password" name="password">
                             </div>
-                            <div class="form-group row ">
-
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Nachname </h3>
+                            <div class="form-group">
+                                <label>
+                                    Passwort bestätigen *
                                 </label>
-                                <div class="col-md-8 col-sm-10"> <input type="text" class="form-control " id="lname" name="lname" value="{{ $user->lname }}">
-                                </div>
+
+                                <input type="password" class="form-control"
+                                        id="password_confirm" name="password_confirm">
+                            </div>
+                            <div class="form-group">
+
+                                <label>
+                                    Vorname *
+                                </label>
+                                <input type="text" class="form-control " id="fname" name="fname" value="{{ $user->fname }}">
+                                
 
                             </div>
-                            <div class="row">
-                                <div class="col-md-11 mb-3">
+                            <div class="form-group">
+
+                                <label>
+                                    Nachname *
+                                </label>
+                                <input type="text" class="form-control " id="lname" name="lname" value="{{ $user->lname }}">
+                                
+
+                            </div>
+                            {{-- <div class="row">
+                               <div class="col">
                                     <span>
-                                        <h3>Berechtigung </h3>
+                                        <h4>Adresse:</h4>
+                                    </span>
+
+                                    <hr>
+                               </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <div class="col-md-7">
+                                    <label>
+                                        Straße
+                                    </label>
+                                    <input type="text" class="form-control " id="street" name="street" value="{{ $user->street }}">
+                                </div>
+                                <div class="col"></div>
+                                <div class="col-md-4">
+                                    
+                                    <label>
+                                        Nummer 
+                                    </label>
+                                    <input type="text" class="form-control " id="street_number" name="street_number" value="{{ $user->street_number }}">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-3 ">
+                                <label>
+                                    PLZ
+                                </label>
+                                 <input type="text" class="form-control " id="zip_code" name="zip_code" value="{{ $user->zip_code }}">
+                                </div>
+
+                            <div class="col"></div>
+                            <div class="col-md-8">
+
+                                <label>
+                                    Stadt 
+                                </label>
+                               <input type="text" class="form-control " id="city" name="city" value="{{ $user->city }}">
+                               
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    Profil Bild 
+                                </label>                               
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input " id="avatar" name="avatar">
+                                        <label class="custom-file-label" for="customFile">Wähle die Datei..</label>
+                                    </div>   
+                            </div>
+                            <div class="row m-t-md">
+                                <div class="col-md-12 m-t-md">
+                                    <span>
+                                        <h4>Berechtigung: </h4>
                                     </span>
 
                                     <hr>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group">
 
-                                <label class="col-md-3 col-form-label">
-                                    <h3>Benutzerrolle </h3>
+                                <label>
+                                    Benutzerrolle 
                                 </label>
-                                <div class="col-md-8 col-sm-10"><select class="select2_demo_1 form-control" id="role"
+                                <select class="select2_demo_1 form-control" id="role"
                                         name="role">
                                         @foreach ($roles as $role)
                                             <option value="{{ $role->id }}">{{ $role->displayed_name }}</option>
@@ -78,11 +156,11 @@
                                         
                                     
                                     </select>
-                                </div>
+                                
                             </div>
                             <div class="row">
-                            <div class="col-md-11 mt-3 text-right">
-                                <button type="submit" class="btn btn-success">Update</button>
+                            <div class="col-md-12 mt-3 text-right">
+                                <button type="submit" class="btn btn-success">Neuen Benutzer hinzufügen</button>
                             </div></div>
                         </div>
                         <div class="col-md-4 text-center">
@@ -115,6 +193,12 @@
             placeholder: "Wähle die Rolle...",
             allowClear: true
         });
+
+        $('.custom-file-input').change( function () {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
 
     });
 
