@@ -27,7 +27,6 @@
 @if (Session::has('message'))
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
-
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
@@ -35,10 +34,11 @@
                 <div class="ibox-title">
                     <div class="row">
                         <div class="col">
-                            <h4><i class="fa fa-picture-o"></i> Zeichnungen</h4>
+                            <h4><i class="fa fa-user"></i> Benutzer</h4>
                         </div>
                         <div class="col text-right"><a 
-                                class="btn btn-white btn-lg" data-toggle="modal" data-target="#drawing-modal" ><i class="fa fa-plus"></i> Hinzufügen</a></div>
+                                class="btn btn-white btn-lg" data-toggle="modal" data-target="#drawing-modal" ><i class="fa fa-plus"></i> Hinzufügen</a>
+                        </div>
                         <div class="ibox-tools">
 
                             <a class="collapse-link">
@@ -61,7 +61,7 @@
                     </div>
                     <table class="footable table footable-stripped default footable-loadded" data-page-size="20" data-filter=#filter>
                         <thead>
-                            <tr>
+                           <tr>
                                
                                 <th >F-Nummer</th>
                                 <th>AG</th>
@@ -119,6 +119,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('script')
@@ -185,7 +186,8 @@
                 drawing: "Dieses Feld ist erforderlich"
             }
         });
-        $('.custom-file-input').on('change', function () {
+
+        $('.custom-file-input').change( function () {
             let fileName = $(this).val().split('\\').pop();
             $(this).next('.custom-file-label').addClass("selected").html(fileName);
         });
