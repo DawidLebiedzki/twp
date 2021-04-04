@@ -51,47 +51,22 @@
 
                     </div>
                 </div>
+                
                 <div class="ibox-content">
-                    <div class="row">
-                        <div class="col-4"><input type="text" class="form-control form-control-sm m-b-xs" id="filter"
-                                placeholder="Suchen..."></div>
-
-                    </div>
-                    <table class="footable table footable-stripped default footable-loadded" data-page-size="20" data-filter=#filter>
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-example" >
                         <thead>
                             <tr>
-
-                                <th >Personalnummer</th>
-                                <th>Name</th>
+                                <th>Personalnummer</th>
+                                <th>Vorname</th>
+                                <th>Nachname</th>
                                 <th data-hide="phone,tablet">Berechtigungen</th>
                                 <th data-hide="phone,tablet">Hinzugefügt am:</th>
                                 <th class="text-right">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->fname }} {{ $user->lname }}</td>
-                                    <td>{{ implode(', ',$user->roles()->get()->pluck('displayed_name')->toArray()) }}
-                                    <td>{{ date_format($user->created_at, 'd.m.Y') }}</td>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group tooltip-demo">
-                                            <button type="button" class="btn-white btn btn-xs"><i class="fa fa-eye"
-                                                    data-toggle="tooltip" data-placement="left"
-                                                    title="Vorschau"></i></button>
-                                            <a href="{{ route('admin.users.edit', $user->id) }}" type="button" class="btn-white btn btn-xs"><i class="fa fa-edit"
-                                                    data-toggle="tooltip" data-placement="bottom"
-                                                    title="Bearbeiten"></i></a>
-                                            <button type="button" class="btn-white btn btn-xs"><i class="fa fa-trash"
-                                                    data-toggle="tooltip" data-placement="right"
-                                                    title="Löschen"></i></button>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            @endforeach
+                           
                         </tbody>
                         <tfoot>
                             <tr>
@@ -101,6 +76,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                </div>
                 </div>
             </div>
         </div>
@@ -113,7 +89,44 @@
 <script>
     $(document).ready(function () {
 
-        $('.footable').footable();
+        $('.dataTables-example').DataTable({
+            pageLength: 25,
+            responsive: true,
+            
+            processing: true,
+            language: {
+                    "lengthMenu": "Zeige _MENU_ Rekorde per Seite",
+                    "zeroRecords": "Nothing found - sorry",
+                    "info": "Seite anzeigen _PAGE_ von _PAGES_",
+                    "infoEmpty": "Keine Rekorde vorhanden",
+                    "infoFiltered": "(filtered from _MAX_ total records)",
+                    "search":         "Suchen:",
+                    "paginate": {
+                                    "first":      "Erste",
+                                    "last":       "Letzte",
+                                    "next":       "Nächste",
+                                    "previous":   "Vorherige"
+                    },
+            },
+            dom: '<"html5buttons"B>lTfgitp',
+            ajax: "{{ route('admin.users.index') }}",
+            columns: [
+                {data: 'username', name: 'username'},
+                {data: 'fname', name: 'fname'},
+                {data: 'lname', name: 'lname'},
+                {data: 'role', name: 'role', searchable: false},
+                {data: 'created_at', name: 'created_at'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ],
+            buttons: [
+                    
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+                    
+
+                ]
+            
+            });
 
 
     });
