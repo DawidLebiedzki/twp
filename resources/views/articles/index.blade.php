@@ -8,7 +8,7 @@
                     <div class="ibox-title">
                         <div class="row">
                             <div class="col"><h4>Artikel</h4></div>
-                        <div class="col text-right"><a href="" class="btn btn-success btn-lg"><i class="fa fa-plus-square-o"></i> Hinzufügen</a></div>
+                        <div class="col text-right"><a href="" class="btn btn-outline btn-success btn-lg"><i class="fa fa-plus-square-o"></i> Hinzufügen</a></div>
                         <div class="ibox-tools">
                             
                             <a class="collapse-link">

@@ -36,7 +36,7 @@
                             <h4><i class="fa fa-user"></i> Benutzer</h4>
                         </div>
                         <div class="col text-right"><a href="{{ route('admin.users.create') }}"
-                                class="btn btn-white btn-lg"><i class="fa fa-plus"></i> Hinzufügen</a></div>
+                                class="btn btn-outline btn-success btn-lg"><i class="fa fa-plus"></i> Hinzufügen</a></div>
                         <div class="ibox-tools">
 
                             <a class="collapse-link">
@@ -61,7 +61,7 @@
                                 <th>Vorname</th>
                                 <th>Nachname</th>
                                 <th data-hide="phone,tablet">Berechtigungen</th>
-                                <th data-hide="phone,tablet">Hinzugefügt am:</th>
+                                <th data-hide="phone,tablet">Erstellt am:</th>
                                 <th class="text-right">Action</th>
                             </tr>
                         </thead>
@@ -70,9 +70,13 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="5">
-                                    <ul class="pagination float-right"></ul>
-                                </td>
+                                <th>Personalnummer</th>
+                                <th>Vorname</th>
+                                <th>Nachname</th>
+                                <th data-hide="phone,tablet">Berechtigungen</th>
+                                <th data-hide="phone,tablet">Erstellt am:</th>
+                                <th class="text-right">Action</th>
+                               
                             </tr>
                         </tfoot>
                     </table>
@@ -118,6 +122,20 @@
                 {data: 'created_at', name: 'created_at'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
+            columnDefs: [
+                            { 
+                                width: "5%",
+                                targets: [0] 
+                            },
+                            { 
+                                width: "10%",
+                                targets: -1 
+                            },
+                            {
+                                targets: -1,
+                                className: 'text-center'
+                            }
+                        ],
             buttons: [
                     
                     {extend: 'excel', title: 'ExampleFile'},

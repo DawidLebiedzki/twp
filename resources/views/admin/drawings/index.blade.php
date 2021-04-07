@@ -33,11 +33,11 @@
             <div class="ibox ">
                 <div class="ibox-title">
                     <div class="row">
-                        <div class="col">
-                            <h4><i class="fa fa-user"></i> Benutzer</h4>
+                        <div class="col p-l-xs p-r-xs">
+                            <h4 class=""><i class="fa fa-picture-o"></i> Zeichnungen</h4>
                         </div>
                         <div class="col text-right"><a 
-                                class="btn btn-white btn-lg" data-toggle="modal" data-target="#drawing-modal" ><i class="fa fa-plus"></i> Hinzufügen</a>
+                                class="btn btn-outline btn-success btn-lg" data-toggle="modal" data-target="#drawing-modal" ><i class="fa fa-plus"></i> Hinzufügen</a>
                         </div>
                         <div class="ibox-tools">
 
@@ -85,19 +85,19 @@
                                     <td>{{ $drawing->index }}</td>
                                     <td>{{ date_format($drawing->updated_at, 'd.m.Y') }}</td>
                                     <td>{{ $drawing->user->fname}} {{ $drawing->user->lname}}</td>
-                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-white"><i class="fa fa-file-pdf-o"
+                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-default dim  btn-outline  p-sm"><i class="fa fa-file-pdf-o"
                                                     data-toggle="tooltip" data-placement="left"
                                                     title="Vorschau"></a></td>
                                     
                                     <td class="text-right">
                                         <div class="btn-group tooltip-demo">
-                                            <button type="button" class="btn-white btn btn"><i class="fa fa-eye"
+                                            <button type="button" class="btn-white btn btn p-sm"><i class="fa fa-eye"
                                                     data-toggle="tooltip" data-placement="left"
                                                     title="Vorschau"></i></button>
-                                            <a href="#" type="button" class="btn-white btn btn"><i class="fa fa-edit"
+                                            <a href="#" type="button" class="btn-white btn btn p-sm"><i class="fa fa-edit"
                                                     data-toggle="tooltip" data-placement="bottom"
                                                     title="Bearbeiten"></i></a>
-                                            <button type="button" class="btn-white btn btn"><i class="fa fa-trash"
+                                            <button type="button" class="btn-white btn btn p-sm"><i class="fa fa-trash"
                                                     data-toggle="tooltip" data-placement="right"
                                                     title="Löschen"></i></button>
                                         </div>

@@ -54,14 +54,14 @@
                             @foreach($drawings as $drawing)
                                 <tr>
                                     
-                                    <td>{{ $drawing->article->article_number_intern}}</td>
+                                    <td><strong>{{ $drawing->article->article_number_intern}}</strong></td>
                                     <td>{{ $drawing->stage }}</td>
                                     <td>{{ $drawing->operation }}</td>
                                     <td>{{ $drawing->drawing_number }} </td>
                                     <td>{{ $drawing->index }}</td>
                                     <td>{{ date_format($drawing->updated_at, 'd.m.Y') }}</td>
                                     <td>{{ $drawing->user->fname}} {{ $drawing->user->lname}}</td>
-                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-white"><i class="fa fa-file-pdf-o"
+                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-default btn-large-dim btn-outline  "><i class="fa fa-file-pdf-o"
                                                     data-toggle="tooltip" data-placement="left"
                                                     title="Vorschau"></a></td>
                                     

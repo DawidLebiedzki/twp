@@ -8,9 +8,13 @@
         @endforeach
     </div>
 @endif
+
+
+
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col"></div>
+        <div class="col-lg-10">
             <div class="ibox ">
                 <div class="ibox-title">
                     <div class="row">
@@ -160,7 +164,8 @@
                             </div>
                             <div class="row">
                             <div class="col-md-12 mt-3 text-right">
-                                <button type="submit" class="btn btn-success">Neuen Benutzer hinzufügen</button>
+                                <button></button>
+                                <button type="submit" class="btn btn-success">Benutzer aktualisieren</button>
                             </div></div>
                         </div>
                         <div class="col-md-4 text-center">
@@ -175,6 +180,7 @@
                 </div>
             </div>
         </div>
+        <div class="col"></div>
     </div>
 
 </div>

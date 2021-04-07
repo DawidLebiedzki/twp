@@ -47,7 +47,7 @@
                             </div>
                             <div class="row m-b-lg">
                                 <div class="col-2 m-l-xs">
-                                    <div ><img alt="image" class="rounded-circle" src="{{ $user->getFirstMediaUrl() }}" height="100" width="100"></div>
+                                    <div ><img alt="image" class="rounded-circle" src="{{ $user->getFirstMediaUrl('avatars') }}" height="100" width="100"></div>
                                     
                                 </div>
                                 <div class="col-6 float-left p-l-xs" >
