@@ -55,36 +55,20 @@
                     <li class="nav-header">
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <img alt="image" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50" width="50">
-                                    @auth
+                               @auth
+                               <img alt="image" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50" width="50">
+                                    
                                        <span class="block m-t-xs font-bold">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
-                                        
+                                        <span class="block m-t-xs font-bold text-muted">{{ implode(', ', Auth::user()->roles()->get()->pluck('displayed_name')->toArray()) }}</span>
 
                                     @endauth                                      
                                     @guest
+                                    <img alt="image" class="rounded-circle" src="{{ asset('img/default_avatar.png') }}" height="50" width="50">
                                          <span class="block m-t-xs font-bold">Gast</span>
                                     @endguest                                
-                                <span class="text-muted text-xs block">Menu <b class="caret"></b></span>
+                                
                             </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                
-                                @auth 
-                                <li><a class="dropdown-item" href="{{ route('users.settings.show', Auth::user()) }}">Profil</a></li>
-                                <li><a class="dropdown-item" href="{{ url('/home') }}">Nachrichten</a></li>
-                                <li class="dropdown-divider"></li>      
-                                   
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">Logout</a></li>
-                                
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                @endauth                                   
-                                @guest
-                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
-                                @endguest
-                            </ul>
+                            
                         </div>
 {{-- Left menu --}}
                         <div class="logo-element">
