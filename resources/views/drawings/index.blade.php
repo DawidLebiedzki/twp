@@ -61,7 +61,7 @@
                                     <td>{{ $drawing->index }}</td>
                                     <td>{{ date_format($drawing->updated_at, 'd.m.Y') }}</td>
                                     <td>{{ $drawing->user->fname}} {{ $drawing->user->lname}}</td>
-                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-default btn-large-dim btn-outline  "><i class="fa fa-file-pdf-o"
+                                    <td class="text-center" ><a href="{{ $drawing->getFirstMediaUrl() }}" target="_blank" class="btn btn-default btn-outline  "><i class="fa fa-file-pdf-o"
                                                     data-toggle="tooltip" data-placement="left"
                                                     title="Vorschau"></a></td>
                                     
