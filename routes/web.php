@@ -16,11 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(
+    function () {
+        Route::resource('/users', 'UserController');
+    }
+);
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 
@@ -28,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
-            Route::resource('/users', 'UserController');
+
             Route::resource('/customers', 'CustomerController');
             Route::resource('/machines', 'MachineController');
             Route::resource('/shifts', 'ShiftController');

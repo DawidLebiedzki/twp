@@ -56,7 +56,7 @@
                         <div class="dropdown profile-element">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                @auth
-                               <img alt="image" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50" width="50">
+                               <a href="{{ route('admin.users.show', Auth::user()->id) }}" class=""><img alt="image" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50" width="50"></a>
                                     
                                        <span class="block m-t-xs font-bold">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
                                         <span class="block m-t-xs font-bold text-muted">{{ implode(', ', Auth::user()->roles()->get()->pluck('displayed_name')->toArray()) }}</span>
