@@ -1,5 +1,5 @@
 
-<div class="modal inmodal fade" id="drawing-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal inmodal fade" id="drawing-edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,7 +22,7 @@
                                     <select class="custom-select custom-select-article-id"
                                         id="article_id" name="article_id">
                                         @foreach($articles as $article)
-                                            <option value="{{ $article->id }}">{{ $article->article_number_intern }}
+                                            <option value="{{ $article->id }}" {{ $drawing->article_id == $article->id ? 'selected' : '' }}>{{ $article->article_number_intern }}
                                             </option>
                                         @endforeach
                                     </select>
