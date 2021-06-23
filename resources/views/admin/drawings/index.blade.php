@@ -91,15 +91,16 @@
                                     
                                     <td class="text-right">
                                         <div class="btn-group tooltip-demo">
-                                            <button type="button" class="btn-white btn btn p-sm"><i class="fa fa-eye"
+                                            <a href="{{ url('admin/drawings/'.$drawing->id. '/edit') }}" type="button" class="btn-white btn btn p-sm" data-toggle="modal" data-target="#drawing-edit-modal" ><i class="fa fa-edit"
                                                     data-toggle="tooltip" data-placement="left"
-                                                    title="Vorschau"></i></button>
-                                            <a href="#" type="button" class="btn-white btn btn p-sm"><i class="fa fa-edit"
-                                                    data-toggle="tooltip" data-placement="bottom"
                                                     title="Bearbeiten"></i></a>
-                                            <button type="button" class="btn-white btn btn p-sm"><i class="fa fa-trash"
+                                            <form method="POST" action="{{ url('admin/drawings/'.$drawing->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-white btn btn p-sm"><i class="fa fa-trash"
                                                     data-toggle="tooltip" data-placement="right"
                                                     title="Löschen"></i></button>
+                                            </form>
                                         </div>
                                     </td>
 
@@ -214,3 +215,4 @@
 </script>
 @endsection
 @include('admin.drawings.create')
+@include('admin.drawings.edit')
