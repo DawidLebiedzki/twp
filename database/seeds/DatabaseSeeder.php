@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Customer;
+use Database\Seeders\OperationSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,7 +24,28 @@ class DatabaseSeeder extends Seeder
         // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         // factory(App\Article::class, 10)->create();
-        factory(App\Customer::class, 10)->create();
-        factory(App\Machine::class, 10)->create();
+        //factory(App\Customer::class, 10)->create();
+        //factory(App\Machine::class, 10)->create();
+
+        DB::table('operations')->insert([
+            'name' => 'Stanzen',
+            'user_id' => '1'
+
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Bürsten',
+            'user_id' => '10'
+
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Plätieren',
+            'user_id' => '11'
+
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Lochen',
+            'user_id' => '13'
+
+        ]);
     }
 }
