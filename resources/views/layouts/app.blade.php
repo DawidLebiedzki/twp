@@ -108,6 +108,7 @@
                         <ul class="nav nav-second-level collapse">
                             <li><a href="{{ route('drawings.index') }}">Zeichnung</a></li>
                             <li><a href="#">Lehrenbeschreibung</a></li>
+                            <li><a href="#">Aufbauplan</a></li>
                         </ul>
                     </li>
                      <li>
