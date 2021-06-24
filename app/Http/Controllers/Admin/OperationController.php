@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Operation;
 
-class Operation extends Controller
+
+class OperationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,8 @@ class Operation extends Controller
      */
     public function index()
     {
-        return('Arbeitsgang');
+        $operations = Operation::all();
+        return view('admin.operations.index')->with('operations', $operations);
     }
 
     /**
