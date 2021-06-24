@@ -40,6 +40,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('/articles', 'ArticleController');
             Route::resource('/dashboards', 'DashboardController');
             Route::resource('/drawings', 'DrawingController');
+            Route::resource('/operations', 'OperationController');
         });
 
         Route::resource('drawings', 'DrawingController');
