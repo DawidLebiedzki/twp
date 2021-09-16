@@ -95,7 +95,7 @@
                                             </div>
                                         </td>
 
-                                    </tr>
+x                                    </tr>
                                 @endforeach
                             </tbody>
                             <tfoot>
