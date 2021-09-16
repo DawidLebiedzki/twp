@@ -6,6 +6,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -36,7 +37,7 @@ class HomeController extends Controller
         // $role->givePermissionTo(['create-user', 'show-user', 'delete-user', 'show-article', 'edit-article', 'create-article', 'delete-article', 'show-role', 'edit-role', 'create-role', 'delete-role']);
 
         // return auth()->user()->getAllPermissions();
-
+        
         return view('home');
     }
 }

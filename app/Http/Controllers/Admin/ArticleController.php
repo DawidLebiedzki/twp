@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $webPage = 'Artikeln';
+        $webPage = 'Artikel';
 
         $articles = Article::all();
         return view('articles.index')->with('articles', $articles)->with('webpage', $webPage);
