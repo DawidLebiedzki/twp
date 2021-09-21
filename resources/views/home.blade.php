@@ -1,431 +1,425 @@
 @extends('layouts.app')
 
-@section('content-path')
-    <div class="col-lg-10">
-                    <h2>Advanced Form Elements</h2>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{ url('/home') }}">Home</a>
-                        </li>
-                        
-                    </ol>
+@section('content')
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Reklamationen </h5>
+                <div class="ibox-tools">
+                    <div class="btn-group">
+                        {{-- <button type="button" class="btn btn-xs btn-white active">Today</button>
+                        <button type="button" class="btn btn-xs btn-white">Monthly</button>
+                        <button type="button" class="btn btn-xs btn-white">Annual</button> --}}
+                    </div>
                 </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Custom responsive table </h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li><a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-sm-9 m-b-xs">
+                    <div data-toggle="buttons" class="btn-group btn-group-toggle">
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
+                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-sm" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-primary" type="button">Go!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <th>#</th>
+                        <th>Project </th>
+                        <th>Name </th>
+                        <th>Phone </th>
+                        <th>Company </th>
+                        <th>Completed </th>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Betha project</td>
+                        <td>John Smith</td>
+                        <td>0800 1111</td>
+                        <td>Erat Volutpat</td>
+                        <td><span class="pie">3,1</span></td>
+                        <td>75%</td>
+                        <td>Jul 18, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Betha project</td>
+                        <td>John Smith</td>
+                        <td>0800 1111</td>
+                        <td>Erat Volutpat</td>
+                        <td><span class="pie">3,1</span></td>
+                        <td>75%</td>
+                        <td>Jul 18, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        </div>
+        </div>
+
+        
 @endsection
 
-@section('content')
- <div class="p-w-md m-t-sm">
-                    <div class="row">
-
-                        <div class="col-sm-4">
-                            <h1 class="m-b-xs">
-                                26,900
-                            </h1>
-                            <small>
-                                Sales in current month
-                            </small>
-                            <div id="sparkline1" class="m-b-sm"></div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <small class="stats-label">Pages / Visit</small>
-                                    <h4>236 321.80</h4>
-                                </div>
-
-                                <div class="col-4">
-                                    <small class="stats-label">% New Visits</small>
-                                    <h4>46.11%</h4>
-                                </div>
-                                <div class="col-4">
-                                    <small class="stats-label">Last week</small>
-                                    <h4>432.021</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-sm-4">
-                            <h1 class="m-b-xs">
-                                98,100
-                            </h1>
-                            <small>
-                                Sales in last 24h
-                            </small>
-                            <div id="sparkline2" class="m-b-sm"></div>
-                            <div class="row">
-                                <div class="col-4">
-                                    <small class="stats-label">Pages / Visit</small>
-                                    <h4>166 781.80</h4>
-                                </div>
-
-                                <div class="col-4">
-                                    <small class="stats-label">% New Visits</small>
-                                    <h4>22.45%</h4>
-                                </div>
-                                <div class="col-4">
-                                    <small class="stats-label">Last week</small>
-                                    <h4>862.044</h4>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-sm-4">
-
-                            <div class="row m-t-xs">
-                                <div class="col-6">
-                                    <h5 class="m-b-xs">Income last month</h5>
-                                    <h1 class="no-margins">160,000</h1>
-                                    <div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="m-b-xs">Sals current year</h5>
-                                    <h1 class="no-margins">42,120</h1>
-                                    <div class="font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
-                                </div>
-                            </div>
-
-
-                            <table class="table small m-t-sm">
-                                <tbody>
-                                <tr>
-                                    <td>
-                                        <strong>142</strong> Projects
-
-                                    </td>
-                                    <td>
-                                        <strong>22</strong> Messages
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong>61</strong> Comments
-                                    </td>
-                                    <td>
-                                        <strong>54</strong> Articles
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <strong>154</strong> Companies
-                                    </td>
-                                    <td>
-                                        <strong>32</strong> Clients
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-
-
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="small float-left col-md-3 m-l-lg m-t-md">
-                                <strong>Sales char</strong> have evolved over the years sometimes.
-                            </div>
-                            <div class="small float-right col-md-3 m-t-md text-right">
-                                <strong>There are many</strong> variations of passages of Lorem Ipsum available, but the majority have suffered.
-                            </div>
-                            <div class="flot-chart m-b-xl">
-                                <div class="flot-chart-content" id="flot-dashboard5-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox">
-
-
-
-                                <div class="ibox-content">
-
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label class="col-form-label" for="product_name">Project Name</label>
-                                                <input type="text" id="product_name" name="product_name" value="" placeholder="Project Name" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="form-group">
-                                                <label class="col-form-label" for="price">Name</label>
-                                                <input type="text" id="price" name="price" value="" placeholder="Name" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="form-group">
-                                                <label class="col-form-label" for="quantity">Company</label>
-                                                <input type="text" id="quantity" name="quantity" value="" placeholder="Company" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label class="col-form-label" for="status">Status</label>
-                                                <select name="status" id="status" class="form-control">
-                                                    <option value="1" selected="">Completed</option>
-                                                    <option value="0">Pending</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-
-                                            <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Master project</td>
-                                                <td>Patrick Smith</td>
-                                                <td>$892,074</td>
-                                                <td>Inceptos Hymenaeos Ltd</td>
-                                                <td><strong>20%</strong></td>
-                                                <td>Jul 14, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alpha project</td>
-                                                <td>Alice Jackson</td>
-                                                <td>$963,486</td>
-                                                <td>Nec Euismod In Company</td>
-                                                <td><strong>40%</strong></td>
-                                                <td>Jul 16, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Betha project</td>
-                                                <td>John Smith</td>
-                                                <td>$996,824</td>
-                                                <td>Erat Volutpat</td>
-                                                <td><strong>75%</strong></td>
-                                                <td>Jul 18, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Gamma project</td>
-                                                <td>Anna Jordan</td>
-                                                <td>$105,192</td>
-                                                <td>Tellus Ltd</td>
-                                                <td><strong>18%</strong></td>
-                                                <td>Jul 22, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alpha project</td>
-                                                <td>Alice Jackson</td>
-                                                <td>$674,803</td>
-                                                <td>Nec Euismod In Company</td>
-                                                <td><strong>40%</strong></td>
-                                                <td>Jul 16, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Master project</td>
-                                                <td>Patrick Smith</td>
-                                                <td>$174,729</td>
-                                                <td>Inceptos Hymenaeos Ltd</td>
-                                                <td><strong>20%</strong></td>
-                                                <td>Jul 14, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Gamma project</td>
-                                                <td>Anna Jordan</td>
-                                                <td>$823,198</td>
-                                                <td>Tellus Ltd</td>
-                                                <td><strong>18%</strong></td>
-                                                <td>Jul 22, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Project <small>This is example of project</small></td>
-                                                <td>Patrick Smith</td>
-                                                <td>$778,696</td>
-                                                <td>Inceptos Hymenaeos Ltd</td>
-                                                <td><strong>20%</strong></td>
-                                                <td>Jul 14, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alpha project</td>
-                                                <td>Alice Jackson</td>
-                                                <td>$861,063</td>
-                                                <td>Nec Euismod In Company</td>
-                                                <td><strong>40%</strong></td>
-                                                <td>Jul 16, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Betha project</td>
-                                                <td>John Smith</td>
-                                                <td>$109,125</td>
-                                                <td>Erat Volutpat</td>
-                                                <td><strong>75%</strong></td>
-                                                <td>Jul 18, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Gamma project</td>
-                                                <td>Anna Jordan</td>
-                                                <td>$600,978</td>
-                                                <td>Tellus Ltd</td>
-                                                <td><strong>18%</strong></td>
-                                                <td>Jul 22, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Alpha project</td>
-                                                <td>Alice Jackson</td>
-                                                <td>$150,161</td>
-                                                <td>Nec Euismod In Company</td>
-                                                <td><strong>40%</strong></td>
-                                                <td>Jul 16, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Project <small>This is example of project</small></td>
-                                                <td>Patrick Smith</td>
-                                                <td>$160,586</td>
-                                                <td>Inceptos Hymenaeos Ltd</td>
-                                                <td><strong>20%</strong></td>
-                                                <td>Jul 14, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Gamma project</td>
-                                                <td>Anna Jordan</td>
-                                                <td>$110,612</td>
-                                                <td>Tellus Ltd</td>
-                                                <td><strong>18%</strong></td>
-                                                <td>Jul 22, 2015</td>
-                                                <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-   
-
-    {{-- <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/jquery.flot.symbol.js"></script>
-    <script src="js/plugins/flot/jquery.flot.time.js"></script> --}}
-
-   
-    {{-- <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script> --}}
-
-
-    {{-- <script>
+@section('script')
+    <!-- DataMaps -->
+    <script src="{{ asset('js/plugins/typehead/bootstrap3-typeahead.min.js') }}" defer></script>
+    <script src="{{ asset('js/plugins/d3/d3.min.js') }}" defer></script>
+    <script src="{{ asset('js/plugins/topojson/topojson.js') }}" defer></script>
+    <script src="{{ asset('js/plugins/datamaps/datamaps.all.min.js') }}" defer></script>
+    <script>
         $(document).ready(function() {
 
-            var sparklineCharts = function(){
-                $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52], {
-                    type: 'line',
-                    width: '100%',
-                    height: '50',
-                    lineColor: '#1ab394',
-                    fillColor: "transparent"
-                });
 
-                $("#sparkline2").sparkline([32, 11, 25, 37, 41, 32, 34, 42], {
-                    type: 'line',
-                    width: '100%',
-                    height: '50',
-                    lineColor: '#1ab394',
-                    fillColor: "transparent"
-                });
 
-                $("#sparkline3").sparkline([34, 22, 24, 41, 10, 18, 16,8], {
-                    type: 'line',
-                    width: '100%',
-                    height: '50',
-                    lineColor: '#1C84C6',
-                    fillColor: "transparent"
-                });
+
+
+            
+
+            var data2 = [
+                [gd(2012, 1, 1), 7], [gd(2012, 1, 2), 6], [gd(2012, 1, 3), 4], [gd(2012, 1, 4), 8],
+                [gd(2012, 1, 5), 9], [gd(2012, 1, 6), 7], [gd(2012, 1, 7), 5], [gd(2012, 1, 8), 4],
+                [gd(2012, 1, 9), 7], [gd(2012, 1, 10), 8], [gd(2012, 1, 11), 9], [gd(2012, 1, 12), 6],
+                [gd(2012, 1, 13), 4], [gd(2012, 1, 14), 5], [gd(2012, 1, 15), 11], [gd(2012, 1, 16), 8],
+                [gd(2012, 1, 17), 8], [gd(2012, 1, 18), 11], [gd(2012, 1, 19), 11], [gd(2012, 1, 20), 6],
+                [gd(2012, 1, 21), 6], [gd(2012, 1, 22), 8], [gd(2012, 1, 23), 11], [gd(2012, 1, 24), 13],
+                [gd(2012, 1, 25), 7], [gd(2012, 1, 26), 9], [gd(2012, 1, 27), 9], [gd(2012, 1, 28), 8],
+                [gd(2012, 1, 29), 5], [gd(2012, 1, 30), 8], [gd(2012, 1, 31), 25]
+            ];
+
+            var data3 = [
+                [gd(2012, 1, 1), 800], [gd(2012, 1, 2), 500], [gd(2012, 1, 3), 600], [gd(2012, 1, 4), 700],
+                [gd(2012, 1, 5), 500], [gd(2012, 1, 6), 456], [gd(2012, 1, 7), 800], [gd(2012, 1, 8), 589],
+                [gd(2012, 1, 9), 467], [gd(2012, 1, 10), 876], [gd(2012, 1, 11), 689], [gd(2012, 1, 12), 700],
+                [gd(2012, 1, 13), 500], [gd(2012, 1, 14), 600], [gd(2012, 1, 15), 700], [gd(2012, 1, 16), 786],
+                [gd(2012, 1, 17), 345], [gd(2012, 1, 18), 888], [gd(2012, 1, 19), 888], [gd(2012, 1, 20), 888],
+                [gd(2012, 1, 21), 987], [gd(2012, 1, 22), 444], [gd(2012, 1, 23), 999], [gd(2012, 1, 24), 567],
+                [gd(2012, 1, 25), 786], [gd(2012, 1, 26), 666], [gd(2012, 1, 27), 888], [gd(2012, 1, 28), 900],
+                [gd(2012, 1, 29), 178], [gd(2012, 1, 30), 555], [gd(2012, 1, 31), 993]
+            ];
+
+            var dataset = [{
+                label: "Kundenreklamation",
+                data: data3,
+                color: "#1ab394",
+                bars: {
+                    show: true,
+                    align: "center",
+                    barWidth: 24 * 60 * 60 * 600,
+                    lineWidth: 0
+                }
+
+            }, {
+                label: "Kosten",
+                data: data2,
+                yaxis: 2,
+                color: "#1C84C6",
+                lines: {
+                    lineWidth: 1,
+                    show: true,
+                    fill: true,
+                    fillColor: {
+                        colors: [{
+                            opacity: 0.2
+                        }, {
+                            opacity: 0.4
+                        }]
+                    }
+                },
+                splines: {
+                    show: false,
+                    tension: 0.6,
+                    lineWidth: 1,
+                    fill: 0.1
+                },
+            }];
+            
+
+            var options = {
+                xaxis: {
+                    mode: "time",
+                    tickSize: [3, "day"],
+                    tickLength: 0,
+                    axisLabel: "Date",
+                    axisLabelUseCanvas: true,
+                    axisLabelFontSizePixels: 12,
+                    axisLabelFontFamily: 'Arial',
+                    axisLabelPadding: 10,
+                    color: "#d5d5d5"
+                },
+                yaxes: [{
+                    position: "left",
+                    max: 1070,
+                    color: "#d5d5d5",
+                    axisLabelUseCanvas: true,
+                    axisLabelFontSizePixels: 12,
+                    axisLabelFontFamily: 'Arial',
+                    axisLabelPadding: 3
+                }, {
+                    position: "right",
+                    clolor: "#d5d5d5",
+                    axisLabelUseCanvas: true,
+                    axisLabelFontSizePixels: 12,
+                    axisLabelFontFamily: ' Arial',
+                    axisLabelPadding: 67
+                }],
+                legend: {
+                    noColumns: 1,
+                    labelBoxBorderColor: "#000000",
+                    position: "nw"
+                },
+                grid: {
+                    hoverable: false,
+                    borderWidth: 0
+                }
             };
 
-            var sparkResize;
+            function gd(year, month, day) {
+                return new Date(year, month - 1, day).getTime();
+            }
 
-            $(window).resize(function(e) {
-                clearTimeout(sparkResize);
-                sparkResize = setTimeout(sparklineCharts, 500);
+            var previousPoint = null,
+                previousLabel = null;
+
+            $.plot($("#flot-dashboard-chart"), dataset, options);
+
+
+
+            // arc_map.arc(
+            //     [{
+            //             origin: 'DEU',
+            //             destination: 'USA'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'FRA'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'POL'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'GBR'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'CHN'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'HUN'
+            //         },
+            //         {
+            //             origin: 'DEU',
+            //             destination: 'ITA'
+            //         },
+            //          {
+            //             origin: 'DEU',
+            //             destination: 'MEX'
+            //         }
+            //     ], {
+            //         strokeColor: '#F3A012',
+            //         strokeWidth: 1
+            //     }
+            // );
+
+            //orthographic_map.graticule();
+
+            // Resize map on window resize
+            $(window).on('resize', function() {
+                setTimeout(function() {
+                    basic.resize();
+                    selected_map.resize();
+                }, 100)
             });
 
-            sparklineCharts();
-
-
-
-
-            var data1 = [
-                [0,4],[1,8],[2,5],[3,10],[4,4],[5,16],[6,5],[7,11],[8,6],[9,11],[10,20],[11,10],[12,13],[13,4],[14,7],[15,8],[16,12]
-            ];
-            var data2 = [
-                [0,0],[1,2],[2,7],[3,4],[4,11],[5,4],[6,2],[7,5],[8,11],[9,5],[10,4],[11,1],[12,5],[13,2],[14,5],[15,2],[16,0]
-            ];
-            $("#flot-dashboard5-chart").length && $.plot($("#flot-dashboard5-chart"), [
-                        data1,  data2
-                    ],
-                    {
-                        series: {
-                            lines: {
-                                show: false,
-                                fill: true
-                            },
-                            splines: {
-                                show: true,
-                                tension: 0.4,
-                                lineWidth: 1,
-                                fill: 0.4
-                            },
-                            points: {
-                                radius: 0,
-                                show: true
-                            },
-                            shadowSize: 2
-                        },
-                        grid: {
-                            hoverable: true,
-                            clickable: true,
-
-                            borderWidth: 2,
-                            color: 'transparent'
-                        },
-                        colors: ["#1ab394", "#1C84C6"],
-                        xaxis:{
-                        },
-                        yaxis: {
-                        },
-                        tooltip: false
-                    }
-            );
 
         });
-    </script> --}}
+    </script>
 @endsection

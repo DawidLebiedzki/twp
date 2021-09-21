@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Noticeboard;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Noticeboard;
 
 class NoticeboardController extends Controller
 {
@@ -14,8 +15,8 @@ class NoticeboardController extends Controller
      */
     public function index()
     {
-        $notices = Noticeboard::all();
-        return view('noticeboards.index')->with('notices', $notices);
+         $notices = Noticeboard::all();
+        return view('admin.noticeboards.index')->with('notices', $notices);
     }
 
     /**
@@ -42,10 +43,10 @@ class NoticeboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Noticeboard  $noticeboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Noticeboard $noticeboard)
+    public function show($id)
     {
         //
     }
@@ -53,10 +54,10 @@ class NoticeboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Noticeboard  $noticeboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Noticeboard $noticeboard)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +66,10 @@ class NoticeboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Noticeboard  $noticeboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noticeboard $noticeboard)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +77,10 @@ class NoticeboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Noticeboard  $noticeboard
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticeboard $noticeboard)
+    public function destroy($id)
     {
         //
     }

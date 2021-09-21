@@ -31,8 +31,10 @@ class DrawingController extends Controller
         $file = $request->file('drawing');
 
        $drawing = Drawing::create($request->all());
-
-       $drawing->addMedia($request->drawing)->toMediaCollection();
+        
+       if($request->hasFile('image') && $request->file('image')->isValid()){
+           $drawing->addMedia($request->drawing)->toMediaCollection();
+       }
         // redirect
         Session::flash('message', 'Successfully created drawing!');
         return Redirect::route('admin.drawings.index');

@@ -85,9 +85,12 @@ class UserController extends Controller
 
         $user->assignRole($request->role);
 
-        $user->addMedia($request->avatar)->toMediaCollection('avatars');
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $user->addMedia($request->avatar)->toMediaCollection('avatars');
+        }
+        
         // redirect
-        Session::flash('message', 'Successfully created user!');
+        Session::flash('message', 'Benutzer wurde hinzugefügt!');
         return Redirect::route('admin.users.index');
     }
 
@@ -143,7 +146,10 @@ class UserController extends Controller
 
         $user->syncRoles($request->role);
         $user->clearMediaCollection('avatars');
-        $user->addMedia($request->avatar)->toMediaCollection('avatars');
+         
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $user->addMedia($request->avatar)->toMediaCollection('avatars');
+        }
         // redirect
         Session::flash('message', 'Benutzer wurde aktualiesiert!');
         return redirect()->route('admin.users.index');

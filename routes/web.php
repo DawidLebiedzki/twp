@@ -26,7 +26,8 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
 
-
+Route::resource('drawings', 'DrawingController');
+Route::resource('noticeboards', 'NoticeboardController');
 
 
     Route::group(['middleware' => ['role:admin']], function () {
@@ -41,18 +42,17 @@ Route::group(['middleware' => ['auth']], function () {
             Route::resource('/dashboards', 'DashboardController');
             Route::resource('/drawings', 'DrawingController');
             Route::resource('/operations', 'OperationController');
+            Route::resource('/noticeboards', 'NoticeboardController');
         });
 
-        Route::resource('drawings', 'DrawingController');
-
-
-
+        
 
         Route::namespace('User')->prefix('users')->name('users.')->group(function () {
             Route::resource('/settings', 'UserSettingController');
             Route::resource('/shifts', 'UserShiftController');
             Route::resource('/drawings', 'UserDrawingController');
             Route::resource('/shift-handovers', 'UserShiftHandoverController');
+            
         });
     });
 });

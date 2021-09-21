@@ -23,29 +23,29 @@ class DatabaseSeeder extends Seeder
         // but I like to explicitly undo what I've done for clarity
         // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        // factory(App\Article::class, 10)->create();
+        factory(App\Noticeboard::class, 100)->create();
         //factory(App\Customer::class, 10)->create();
         //factory(App\Machine::class, 10)->create();
 
-        DB::table('operations')->insert([
-            'name' => 'Stanzen',
-            'user_id' => '1'
+        // DB::table('operations')->insert([
+        //     'name' => 'Stanzen',
+        //     'user_id' => '1'
 
-        ]);
-        DB::table('operations')->insert([
-            'name' => 'Bürsten',
-            'user_id' => '10'
+        // ]);
+        // DB::table('operations')->insert([
+        //     'name' => 'Bürsten',
+        //     'user_id' => '10'
 
-        ]);
-        DB::table('operations')->insert([
-            'name' => 'Plätieren',
-            'user_id' => '11'
+        // ]);
+        // DB::table('operations')->insert([
+        //     'name' => 'Plätieren',
+        //     'user_id' => '11'
 
-        ]);
-        DB::table('operations')->insert([
-            'name' => 'Lochen',
-            'user_id' => '13'
+        // ]);
+        // DB::table('operations')->insert([
+        //     'name' => 'Lochen',
+        //     'user_id' => '13'
 
-        ]);
+        // ]);
     }
 }

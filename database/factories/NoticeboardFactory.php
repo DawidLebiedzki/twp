@@ -3,26 +3,14 @@
 namespace Database\Factories;
 
 use App\Noticeboard;
+use App\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-class NoticeboardFactory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Noticeboard::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
-        return [
-            //
-        ];
-    }
-}
+$factory->define(Noticeboard::class, function (Faker $faker) {
+    return [
+        'name' => $faker->word,
+        'user_id' => User::all()->random()->id,
+        'created_at' => now(),
+    ];
+});

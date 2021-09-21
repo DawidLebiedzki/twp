@@ -57,10 +57,11 @@
                             <div class="dropdown profile-element">
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                     @auth
-                                        <a href="{{ route('admin.users.show', Auth::user()->id) }}" class=""><img
-                                                alt="image" class="rounded-circle"
-                                                src="{{ Auth::user()->getFirstMediaUrl('avatars') }}" height="50"
-                                                width="50"></a>
+                                        <a href="{{ route('admin.users.show', Auth::user()->id) }}"
+                                            class=""><img
+                                                alt=" image"
+                                            class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatars') }}"
+                                            height="50" width="50"></a>
 
                                         <span class="block m-t-xs font-bold">{{ Auth::user()->fname }}
                                             {{ Auth::user()->lname }}</span>
@@ -86,40 +87,25 @@
                             </div>
                         </li>
 
-                        <li><a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Arbeitskarte</span><span
-                                    class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="#" id="damian">Profilabteilung <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-
-                                        <li><a href="#">Schichtübergabe</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#"> <span class="nav-label">Stanzabteilung</span><span
-                                            class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-
-                                        <li><a href="#">Schichtübergabe</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <li><a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> <span
+                                    class="nav-label">Dashboard</span></a>
+                          
                         </li>
 
 
 
 
 
-                        <li><a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Schichtplan</span><span
-                                    class="fa arrow"></span></a>
+                        <li><a href="#"><i class="fa fa-calendar"></i> <span
+                                    class="nav-label">Schichtplan</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="">Profilabteilung</a></li>
                                 <li><a href="#">Stanzabteilung</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-database"></i> <span class="nav-label">Stammdaten</span><span
-                                    class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-database"></i> <span
+                                    class="nav-label">Stammdaten</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="{{ route('drawings.index') }}">Zeichnung</a></li>
                                 <li><a href="#">Lehrenbeschreibung</a></li>
@@ -127,53 +113,56 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-paint-brush"></i> <span class="nav-label">6S</span> </a>
+                            <a href="#"><i class="fa fa-cube"></i> <span class="nav-label">Artikel</span> </a>
                         </li>
 
-                        <li><a href="#"><i class="fa fa-info"></i> <span class="nav-label">Infoboard</span><span
-                                    class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li><a href="#">Profilabteilung</a></li>
-                                <li><a href="#">Stanzabteilung</a></li>
-                            </ul>
+                        <li><a href="{{ route('noticeboards.index') }}"><i class="fa fa-info-circle"></i> <span class="nav-label">Schwarzes
+                                    Brett</span></a>
+                            
                         </li>
 
                         <li>
                             @hasrole('admin')
-                            <a href="#"><i class="fa fa-gears"></i> <span class="nav-label">Administration</span><span
-                                    class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-gears"></i> <span
+                                    class="nav-label">Administration</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li><a href="{{ route('admin.users.index') }}"><i class="fa fa-user"></i> <span
                                             class="nav-label">Benutzer</span></a>
 
 
                                 </li>
-                                <li><a href="{{ route('admin.machines.index') }}"><i class="fa fa-gear"></i> <span
-                                            class="nav-label">Maschinen</span></a>
+                                <li><a href="{{ route('admin.machines.index') }}"><i class="fa fa-gear"></i>
+                                        <span class="nav-label">Maschinen</span></a>
 
 
                                 </li>
-                                <li><a href="{{ route('admin.customers.index') }}"><i class="fa fa-users"></i> <span
-                                            class="nav-label">Kunden</span></a>
+                                <li><a href="{{ route('admin.customers.index') }}"><i class="fa fa-users"></i>
+                                        <span class="nav-label">Kunden</span></a>
 
                                 </li>
                                 <li><a href="{{ route('admin.drawings.index') }}"><i class="fa fa-picture-o"></i>
                                         <span class="nav-label">Zeichnung</span></span></a>
 
                                 </li>
-                                <li><a href="{{ route('admin.articles.index') }}"><i class="fa fa-cube"></i> <span
-                                            class="nav-label">Artikel</span></span></a>
+                                <li><a href="{{ route('admin.articles.index') }}"><i class="fa fa-cube"></i>
+                                        <span class="nav-label">Artikel</span></span></a>
 
                                 </li>
                                 <li><a href="#"><i class="fa fa-calendar"></i> <span
                                             class="nav-label">Schichtplan</span></a>
 
                                 </li>
-                                <li><a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">Auftrag</span></a>
+                                <li><a href="#"><i class="fa fa-tasks"></i> <span
+                                            class="nav-label">Auftrag</span></a>
 
                                 </li>
-                                <li><a href="{{ route('admin.operations.index') }}"><i class="fa fa-tasks"></i> <span
-                                            class="nav-label">Arbeitsgang</span></a>
+                                <li><a href="{{ route('admin.operations.index') }}"><i class="fa fa-tasks"></i>
+                                        <span class="nav-label">Arbeitsgang</span></a>
+
+                                </li>
+                                <li><a href="{{ route('admin.noticeboards.index') }}"><i
+                                            class="fa fa-info-circle"></i>
+                                        <span class="nav-label">Aushang</span></a>
 
                                 </li>
                                 <li><a href="#"><i class="fa fa-gears"></i> <span
@@ -187,7 +176,7 @@
                         </li>
                         @auth
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"><i
+                                                                document.getElementById('logout-form').submit();"><i
                                         class="fa fa-sign-out"></i> <span class="nav-label"> Log out</span> </a></li>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -207,19 +196,119 @@
                                     class="fa fa-bars"></i> </a>
                             <form role="search" class="navbar-form-custom" method="post" action="#">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Search for something..." class="form-control"
+                                    <input type="text" placeholder="Suchen..." class="form-control"
                                         name="top-search" id="top-search">
                                 </div>
                             </form>
                         </div>
                         <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Wilkommen im TWP Portal</span>
+                            </li>
                             @auth
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-messages">
+                                        <li>
+                                            <div class="dropdown-messages-box">
+                                                <a class="dropdown-item float-left" href="profile.html">
+                                                    <img alt="image" class="rounded-circle" src="img/a7.jpg">
+                                                </a>
+                                                <div class="media-body">
+                                                    <small class="float-right">46h ago</small>
+                                                    <strong>Mike Loreipsum</strong> started following <strong>Monica
+                                                        Smith</strong>. <br>
+                                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <div class="dropdown-messages-box">
+                                                <a class="dropdown-item float-left" href="profile.html">
+                                                    <img alt="image" class="rounded-circle" src="img/a4.jpg">
+                                                </a>
+                                                <div class="media-body ">
+                                                    <small class="float-right text-navy">5h ago</small>
+                                                    <strong>Chris Johnatan Overtunk</strong> started following
+                                                    <strong>Monica Smith</strong>. <br>
+                                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <div class="dropdown-messages-box">
+                                                <a class="dropdown-item float-left" href="profile.html">
+                                                    <img alt="image" class="rounded-circle" src="img/profile.jpg">
+                                                </a>
+                                                <div class="media-body ">
+                                                    <small class="float-right">23h ago</small>
+                                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <div class="text-center link-block">
+                                                <a href="mailbox.html" class="dropdown-item">
+                                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-alerts">
+                                        <li>
+                                            <a href="mailbox.html" class="dropdown-item">
+                                                <div>
+                                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                                    <span class="float-right text-muted small">4 minutes ago</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="profile.html" class="dropdown-item">
+                                                <div>
+                                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                                    <span class="float-right text-muted small">12 minutes ago</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a href="grid_options.html" class="dropdown-item">
+                                                <div>
+                                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                                    <span class="float-right text-muted small">4 minutes ago</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <div class="text-center link-block">
+                                                <a href="notifications.html" class="dropdown-item">
+                                                    <strong>See All Alerts</strong>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li>
-                                    <a href="{{ url('/home') }}"><i class="fa fa-home"></i> Home</a>
+                                    <a href="{{ url('/home') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
                                 </li>
 
                                 <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();"><i
+                                                                document.getElementById('logout-form').submit();"><i
                                             class="fa fa-sign-out"></i> <span class="nav-label"> Log out</span> </a>
                                 </li>
 
@@ -230,17 +319,16 @@
                             @endauth
                             @guest
                                 <li>
-                                    <a href="{{ route('login') }}"><i class="fa fa-user"></i>Login</a>
+                                    <a href="{{ route('login') }}"><i class="fa fa-sign-in"></i>Login</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('register') }}"><i class="fa fa-edit"></i>Register</a>
-                                </li>
+
 
                             @endguest
                         </ul>
                     </nav>
                     {{-- End navbar --}}
                 </div>
+                @yield('content-path-dashboard')
                 <div class="row wrapper border-bottom white-bg page-heading">
                     @yield('content-path')
                 </div>
@@ -252,7 +340,7 @@
                         Letzte Aktivität: 25.02.2021
                     </div>
                     <div>
-                        <strong>Copyright</strong> Example Company &copy; 2021
+                        <strong>Copyright</strong> <a href="https://dawidlebiedzki.com">dawidlebiedzki.com </a> &copy; 2021
                     </div>
                 </div>
 

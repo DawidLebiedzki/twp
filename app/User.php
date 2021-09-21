@@ -56,4 +56,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany('App\Drawing');
     }
+
+    public function notices()
+    {
+        return $this->hasMany('App\Noticeboard');
+    }
 }
